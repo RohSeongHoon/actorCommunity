@@ -1,0 +1,62 @@
+.category-head {
+  color: rgb(41, 40, 40);
+  margin: 15px;
+  font-weight: 600;
+  font-size: 30px;
+}
+#community-table {
+  width: 100%;
+}
+#community-table-head {
+  background-color: rgb(212, 208, 208);
+}
+#head-title {
+  width: 70%;
+}
+#head-writer {
+  width: 15%;
+}
+#head-views {
+  width: 15%;
+}
+.head-item {
+  text-align: center;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 5px;
+}
+
+.body-item {
+  font-size: 17px;
+  text-align: center;
+  padding: 6px;
+  color: black;
+  border-bottom: 1px solid rgb(212, 208, 208);
+}
+.community-post-title {
+  width: 70%;
+  margin: 5px;
+  text-align: start;
+}
+.number-color {
+  color: rgba(0, 0, 255, 0.445);
+}
+.a-scope {
+  display: block;
+}
+.a-scope:hover {
+  background-color: rgb(218, 217, 216);
+}
+.write-button {
+  margin-top: 15px;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 8px;
+  position: relative;
+}
+.write-button a {
+  display: block;
+}

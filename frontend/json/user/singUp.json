@@ -1,0 +1,14 @@
+{
+  "signUp": {
+    "id": "scubarsh",
+    "password": "123123",
+    "checkPassword": "123123",
+    "gender": "남",
+    "name": "노성훈",
+    "nickName": "우굴쭈굴",
+    "email": "scubarsh@naver.com",
+    "aboutMe": "안녕하세요 노성훈입니다 ",
+    "aboutMeImg": "https://www.google.com/url?sa=i&url=http%3A%2F%2Fm.blog.naver.com%2Fknicjin%2F221123657763&psig=AOvVaw16pf3wIkFRZLs6xztvI9bW&ust=1633246148758000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMiXjpaaq_MCFQAAAAAdAAAAABAD",
+    "aboutMeVideo": "https://www.youtube.com/watch?v=hqtlOsvTuws&list=RDMM&index=3"
+  }
+}

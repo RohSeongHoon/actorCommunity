@@ -1,0 +1,38 @@
+#video-container {
+  display: flex;
+}
+#video-posts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.video-post__list {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  width: 365px;
+  height: 300px;
+}
+
+.youtube-videos {
+  width: 100%;
+  height: 100%;
+}
+.post-title {
+  display: block;
+  margin: 10px 0px;
+  font-size: 18px;
+}
+.post-writer {
+  font-size: 15px;
+  display: block;
+  margin-bottom: 4px;
+}
+.post-comment-count {
+  font-size: small;
+}
+.post-views {
+  position: relative;
+  left: 30px;
+  font-size: small;
+}

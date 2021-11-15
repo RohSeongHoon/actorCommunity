@@ -1,0 +1,38 @@
+.post-header {
+  color: rgb(56, 53, 53);
+  font-size: 25px;
+  font-weight: 400;
+}
+.nomal-writer-container {
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  border: 1px solid rgb(212, 208, 208);
+  background-color: rgb(212, 208, 208);
+  justify-content: space-between;
+}
+.nomal-post-instarid {
+  align-self: flex-end;
+  display: block;
+  position: relative;
+  left: 348px;
+}
+.time-to-comment {
+  font-size: small;
+  opacity: 0.4;
+}
+.nomal-post-contents {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-bottom: 1px solid rgb(212, 208, 208);
+}
+.nomal-post-contents span {
+  padding: 7px;
+}
+.nomal-post-contents img {
+  width: 500px;
+  height: auto;
+  padding: 7px;
+}

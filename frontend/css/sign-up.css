@@ -1,0 +1,30 @@
+.sign-up__title {
+  text-align: center;
+}
+.sign-up {
+  width: 1130px;
+  margin: 50px auto;
+}
+.sign-up__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 60px;
+}
+
+.sign-up__info--input {
+  padding: 15px 8px;
+  border: none;
+  font-size: 18px;
+  margin-bottom: 25px;
+  width: 750px;
+  font-size: 18px;
+  font-weight: 900;
+  border-bottom: 1px solid #323232;
+  background-color: rgb(212, 209, 209);
+  color: #cfcfcf;
+  /* 인풋안에 placeholeder 인풋누르면 placeholeder가 
+  박스 위로 올라가게 하기  */
+}

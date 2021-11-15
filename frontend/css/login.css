@@ -1,0 +1,62 @@
+.login-main {
+  padding: 30px 430px;
+  border: 1px solid #706e6e;
+}
+
+.welcome-header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 5px;
+}
+.welcome-header__title {
+  margin-bottom: 60px;
+  font-weight: 600;
+  font-size: 60px;
+}
+.welcom-header__text {
+  color: #706e6e;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 60px;
+}
+.login-form__input {
+  padding: 15px 0px;
+  font-size: 18px;
+  border: none;
+  padding-bottom: 10px 20px;
+  border-bottom: 1px solid black;
+  margin: 10px 30px;
+}
+.login-form__input[type="submit"] {
+  background-color: #727272;
+  border-radius: 15px;
+  color: aliceblue;
+  font-weight: 500;
+  font-size: 20px;
+  border: none;
+  padding: 0px;
+  line-height: 60px;
+}
+.login-related {
+  margin: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+.login-related a {
+  text-decoration-line: none;
+  color: #5b5b5b;
+}
+.login-related__sign-up,
+.login-related__find-id,
+.login-related__find-password {
+  padding: 0px 20px;
+  border-right: 1px solid black;
+  font-size: 18px;
+}
+.login-related__find-password {
+  border-right: none;
+}

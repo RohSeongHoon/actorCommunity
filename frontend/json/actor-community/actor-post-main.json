@@ -1,0 +1,39 @@
+const express = require("express");
+const cors = require("cors");
+const app = express();
+const port = 3000;
+
+
+var postvideo = {
+  "postVideo": [
+    { "videoLink": "https://www.youtube.com/embed/5ePKBm4spBg" },
+    { "videoTitle": "권진아 노래좋아" },
+    {
+      "videoDescript": "빅마마는 노래를 정말 잘 합니다 킹 왕 짱 댓글 추천 부탁드려요~~ "
+    }
+  ]
+};
+  var postComment ={
+  "postComment": [
+    {
+      "advantage": "노래를 너무 잘해요 닮고 싶어여",
+      "disadvantage": "옷이 늘어낫어요"
+    },
+    {
+      "advantage": "노래를 잘해요 닮고 싶어여",
+      "disadvantage": "옷이 늘어낫어요"
+    },
+    {
+      "advantage": " 닮고 싶어여",
+      "disadvantage": "옷 늘어낫어요"
+    },
+    {
+      "advantage": "노래를 너무 잘해요",
+      "disadvantage": "옷이"
+    },
+    {
+      "advantage": "노래",
+      "disadvantage": "옷"
+    }
+  ]
+};

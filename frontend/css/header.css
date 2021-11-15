@@ -1,0 +1,128 @@
+#navbar-container {
+  display: flex;
+  background-color: white;
+  margin: 0px auto;
+  height: 65px;
+  width: 80%;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo {
+  margin: 0px 20px;
+  width: 20%;
+  font-size: 24px;
+  flex-wrap: nowrap;
+  color: #121212;
+}
+.logo__a {
+  color: #121212;
+}
+
+#search {
+  width: 60%;
+  justify-content: flex-start;
+}
+#search input {
+  width: 420px;
+  height: 35px;
+  border: 2px solid rgb(212, 208, 208);
+  background-color: white;
+}
+#search button {
+  width: 60px;
+  height: 41px;
+  position: absolute;
+  margin-left: -60px;
+  background-color: rgb(212, 208, 208);
+  border: 0px;
+  padding: 0px;
+  align-items: center;
+}
+#search button span {
+  font-size: 15px;
+  color: black;
+}
+#login-button {
+  width: 20%;
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(212, 208, 208);
+  border-left: 30px;
+  border-radius: 15px;
+  display: block;
+}
+#login-button span {
+  font-size: 17px;
+  color: black;
+  margin: 6px 5px;
+}
+.category-bar {
+  width: 100%;
+  position: sticky;
+  z-index: 999;
+  top: 0px;
+  background-color: rgb(212, 208, 208);
+}
+
+.category-bar__container {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  padding: 0px;
+  margin-top: 0px;
+  list-style: none;
+  background-color: rgb(212, 208, 208);
+}
+
+.category-bar__list {
+  height: 65px;
+  color: #121212;
+  line-height: 65px;
+  text-align: start;
+}
+
+.category-bar__list--title {
+  position: relative;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 20px 30px;
+  color: black;
+}
+.categort-bar__content {
+  list-style: none;
+  padding-left: 0px;
+  width: 140px;
+  display: none;
+  position: absolute;
+  font-size: 15px;
+  background-color: rgb(139, 134, 134);
+  border: 30px;
+}
+.category-bar__content--item {
+  font-size: 20px;
+  font-weight: 500;
+}
+.category-bar__content--item > a {
+  color: #121212;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 30px;
+}
+.category-bar__list:hover {
+  background-color: rgb(139, 134, 134);
+  color: black;
+}
+.category-bar__list:hover > a {
+  color: #121212;
+}
+.category-bar__list:hover .categort-bar__content {
+  display: block;
+}
+.category-bar__content--item:hover {
+  background: rgb(119, 114, 114);
+  color: #cfcfcf;
+}

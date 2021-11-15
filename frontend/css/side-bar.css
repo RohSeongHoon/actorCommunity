@@ -1,0 +1,20 @@
+.side-navbar {
+  top: 85px;
+  padding: 3px;
+  position: sticky;
+  height: 10px;
+  width: 20px;
+}
+.side-navbar__container {
+  list-style: none;
+  padding: 0px;
+  width: 130px;
+}
+.side-navbar__container--list {
+  border-bottom: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+.side-navbar__container--a {
+  color: black;
+}

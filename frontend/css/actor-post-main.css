@@ -1,0 +1,68 @@
+span {
+  color: black;
+}
+.video-main {
+  display: flex;
+  flex-direction: column;
+  width: 1130px;
+  margin: 0px auto;
+}
+.video-main__content {
+  margin-top: 30px;
+
+  border-bottom: 1px solid rgb(212, 208, 208);
+}
+.video-main__content--video {
+  display: inline-block;
+  width: 100%;
+}
+.video-main__content--writer,
+.video-main__content--title {
+  font-size: 18px;
+  color: black;
+  display: inline-block;
+  padding: 20px 0px;
+}
+
+.video-main__explain--span {
+  display: block;
+  padding: 30px;
+  border-bottom: 1px solid rgb(212, 208, 208);
+}
+.video-main__write-comment {
+  border-bottom: 1px solid rgb(212, 208, 208);
+  padding: 30px;
+}
+.video-main__write-comment--pros-and-cons {
+  width: 100%;
+  margin-bottom: 5px;
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid black;
+  font-size: 17px;
+}
+.video-main__write-comment--btn {
+  width: 100%;
+  height: 50px;
+  background-color: rgb(212, 208, 208);
+  border: none;
+}
+.video-main__comment {
+  display: flex;
+  flex-direction: column;
+}
+.comment-container {
+  border-bottom: 1px solid black;
+  margin-top: 3px;
+}
+.comment--advantages {
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid rgb(212, 208, 208);
+  margin-top: 10px;
+}
+.comment--disadvantage {
+  display: block;
+  padding: 10px;
+  margin-top: 10px;
+}

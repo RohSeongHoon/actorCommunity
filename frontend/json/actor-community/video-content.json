@@ -1,0 +1,47 @@
+{
+  "video": "video",
+  "videoWriter": "우루루",
+  "videoTitle": "쭈꾸뿌꾸",
+  "videoDescription": "왈랄랄랄 그대는 아름다워를 불러봤다",
+  "commentList": [
+    {
+      "commentWriter": "훈연",
+      "advantageComment": "오 춤을 너무 잘추세요 킹왕짱",
+      "disadvantageComment": "근데 너무 방정맞는거같아요",
+      "commentReply": [
+        {
+          "replyWriter": "우루루",
+          "replyComment": "감사합니다!"
+        },
+        {
+          "replyWriter": "노성훈",
+          "replyComment": "맞아요 저도 그렇게 생각합니다 "
+        }
+      ]
+    },
+    {
+      "commentWriter": "오리훈제",
+      "advantageComment": "오 킹왕짱",
+      "disadvantageComment": "별로에요 ",
+      "commentReply": []
+    },
+    {
+      "commentWriter": "오리",
+      "advantageComment": "오 킹왕짱",
+      "disadvantageComment": "별로에요 ",
+      "commentReply": []
+    },
+    {
+      "commentWriter": "훈제",
+      "advantageComment": "오 킹왕짱",
+      "disadvantageComment": "별로에요 ",
+      "commentReply": []
+    },
+    {
+      "commentWriter": "리훈",
+      "advantageComment": "오 킹왕짱",
+      "disadvantageComment": "별로에요 ",
+      "commentReply": []
+    }
+  ]
+}

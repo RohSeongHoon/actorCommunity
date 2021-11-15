@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <meta
+      name="discriptison"
+      content="연기,뮤지컬,보컬,악기 예술인들의 커뮤니티 코멘트를 받을 수 있습니다 "
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="연기,뮤지컬,보컬,악기,기타" />
+    <title>test</title>
+    <meta name="description" content="예체능인들의 커뮤니티입니다" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  </head>
+  <body>
+    <nav id="navbar-container">
+      <div id="logo">
+        <h1><a class="logo__a" href="../index.html">연기 커뮤니티</a></h1>
+      </div>
+      <form id="search">
+        <input type="text" placeholder="검색어를 입력하세요" />
+        <button type="submit"><span>검색</span></button>
+      </form>
+      <div id="login-button">
+        <a href="../login-interface.html" rel="login"><span>로그인</span></a>
+      </div>
+    </nav>
+    <nav class="category-bar">
+      <ul class="category-bar__container">
+        <li class="category-bar__list">
+          <a class="category-bar__list--title" href="./actor.html" rel="actor"
+            >연기</a
+          >
+          <ul class="categort-bar__content">
+            <li class="category-bar__content--item">
+              <a href="./actor.html">연기 영상</a>
+            </li>
+            <li class="category-bar__content--item"><a href="#">대본</a></li>
+            <li class="category-bar__content--item">
+              <a href="#">프로필함</a>
+            </li>
+            <li class="category-bar__content--item">
+              <a href="#">오디션 정보</a>
+            </li>
+            <li class="category-bar__content--item">
+              <a href="#">자유 게시판</a>
+            </li>
+          </ul>
+        </li>
+        <li class="category-bar__list">
+          <a
+            class="category-bar__list--title"
+            href="/test/community/musical.html"
+            rel="musical"
+            >뮤지컬</a
+          >
+          <ul class="categort-bar__content">
+            <li class="category-bar__content--item">
+              <a href="#">뮤지컬 영상</a>
+            </li>
+            <li class="category-bar__content--item">
+              <a href="#">뮤지컬 대본</a>
+            </li>
+            <li class="category-bar__content--item">
+              <a href="#">프로필함</a>
+            </li>
+            <li class="category-bar__content--item">
+              <a href="#">오디션 정보</a>
+            </li>
+            <li class="category-bar__content--item">
+              <a href="#">자유 게시판</a>
+            </li>
+          </ul>
+        </li>
+        <li class="category-bar__list">
+          <a
+            class="category-bar__list--title"
+            href="/test/community/vocald.html"
+            rel="vocald"
+            >보컬</a
+          >
+          <ul class="categort-bar__content">
+            <li class="category-bar__content--item">
+              <a href="#">보컬 영상</a>
+            </li>
+            <li class="category-bar__content--item"><a href="#">악보</a></li>
+            <li class="category-bar__content--item">
+              <a href="#">오디션 정보</a>
+            </li>
+            <li class="category-bar__content--item">
+              <a href="#">자유 게시판</a>
+            </li>
+          </ul>
+        </li>
+        <li class="category-bar__list">
+          <a
+            class="category-bar__list--title"
+            href="/test/community/performer.html"
+            rel="performer"
+            >연주자</a
+          >
+          <ul class="categort-bar__content">
+            <li class="category-bar__content--item">
+              <a href="#">연주 영상</a>
+            </li>
+            <li class="category-bar__content--item"><a href="#">악보</a></li>
+            <li class="category-bar__content--item">
+              <a href="#">오디션 정보</a>
+            </li>
+            <li class="category-bar__content--item">
+              <a href="#">자유 게시판</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2 class="category-head">오디션정보</h2>
+      <table id="community-table">
+        <thead>
+          <tr id="community-table-head">
+            <td id="head-title" class="head-item">제목</td>
+            <td id="head-writer" class="head-item">작성자</td>
+            <td id="head-views" class="head-item">조회수</td>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <button type="submit" class="write-button">
+        <a href="./">글쓰기</a>
+      </button>
+    </main>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $.get(
+          "http://localhost:3000/categories/mediaAudition",
+          function (data) {
+            data.forEach((element) => {
+              $("#table-body").append(
+                '<tr class="community-table-body">' +
+                  '<td class="body-item community-post-title">' +
+                  '<a class="a-scope" href="' +
+                  element.link +
+                  '">' +
+                  element.title +
+                  '<span class="number-color">' +
+                  element.numberOfComment +
+                  "</span>" +
+                  "</a>" +
+                  "</td>" +
+                  '<td class="body-item community-post-writer">' +
+                  '<a class="a-scope" href="#">' +
+                  element.writer +
+                  "</a>" +
+                  "</td>" +
+                  '<td class="body-item community-post-views number-color">' +
+                  element.views +
+                  "</td>" +
+                  "</tr>"
+              );
+            });
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
