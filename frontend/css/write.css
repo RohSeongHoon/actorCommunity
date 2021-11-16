@@ -8,3 +8,8 @@
   margin-bottom: 16px;
   font-size: 17px;
 }
+#write-completion-button {
+  width: 100%;
+  height: 57px;
+  font-size: x-large;
+}
