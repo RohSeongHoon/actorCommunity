@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <title>SummerNoteExample</title>
+  <title>write</title>
   <link href="./css/styles.css" rel="stylesheet" />
   <meta charset="utf-8">
   <meta
@@ -130,6 +130,7 @@
     <h2 class="category-head">글쓰기</h2>
       <form>
       <input id="write-title" type="text" placeholder="제목을 입력하세요"/>
+      <input id="write-discription" type="text" placeholder="설명을 입력하세요"/>
       <textarea class="summernote" name="editordata"></textarea> 
       <button id="write-completion-button" type="submit">작성완료</button>   
     </form>
@@ -138,7 +139,11 @@
    $('.summernote').summernote({
 	    height: 450,
 	    lang: "ko-KR"
+      
 	  });
+    $('.note-fontname').remove();
+    $('.note-color').remove();
+    $('.note-view').remove();
   </script>
 </body>
 </html>
