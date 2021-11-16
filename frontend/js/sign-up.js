@@ -1,1 +1,0 @@
-var sign_up_main = document.getElementsByClassName("sing-up");
