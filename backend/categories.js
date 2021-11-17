@@ -18,7 +18,7 @@ var categories = [
 
       { postLink: "/Users/nohsounghoon/Desktop/project/actorCommunity/frontend/community/media-actor-aution.html", postName: "audition", postNameKr: "오디션정보" },
 
-      { postLink: "#", postName: "community", postNameKr: "커뮤니티" },
+      { postLink: "#", postName: "freePosts", postNameKr: "자유게시판" },
     ],
   },
   {
@@ -30,7 +30,7 @@ var categories = [
 
       { postLink: "#", postName: "audition", postNameKr: "오디션정보" },
 
-      { postLink: "#", postName: "community", postNameKr: "커뮤니티" },
+      { postLink: "#", postName: "freePosts", postNameKr: "자유게시판" },
     ],
   },
   {
@@ -42,7 +42,7 @@ var categories = [
 
       { postLink: "#", postName: "audition", postNameKr: "오디션정보" },
 
-      { postLink: "#", postName: "community", postNameKr: "커뮤니티" },
+      { postLink: "#", postName: "freePosts", postNameKr: "자유게시판" },
     ],
   },
 
@@ -53,7 +53,7 @@ var categories = [
     contents: [
       { postLink: "#", postName: "dancingVideo", postNameKr: "무용영상" },
 
-      { postLink: "#", postName: "community", postNameKr: "커뮤니티" },
+      { postLink: "#", postName: "freePosts", postNameKr: "자유게시판" },
     ],
   },
 ];
