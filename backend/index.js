@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
+
 const categoryRoute = require("./categories");
 const mainRouter = require("./main");
+const mediaActorsRouter = require('./mediaActors')
 
 const app = express();
 const port = 3000;
@@ -15,6 +17,8 @@ app.use(cors());
 app.use('/',mainRouter)
 
 app.use("/categories", categoryRoute);
+
+app.use("/categories/mediaActors", mediaActorsRouter);
 
 
 

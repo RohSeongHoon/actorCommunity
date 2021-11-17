@@ -84,8 +84,40 @@
             }
           }
         });
+      
+      
+      //html 재활용 하고 싶은데 이렇게 api주소만 변경해서 사용해도 되는건지 
         $.get(
           "http://localhost:3000/categories/mediaActor/audition",
+          function (data) {
+            data.forEach((element) => {
+              $("#table-body").append(
+                '<tr class="community-table-body">' +
+                  '<td class="body-item community-post-title">' +
+                  '<a class="a-scope" href="' +
+                  element.link +
+                  '">' +
+                  element.title +
+                  '<span class="number-color">' +
+                  element.numberOfComment +
+                  "</span>" +
+                  "</a>" +
+                  "</td>" +
+                  '<td class="body-item community-post-writer">' +
+                  '<a class="a-scope" href="#">' +
+                  element.writer +
+                  "</a>" +
+                  "</td>" +
+                  '<td class="body-item community-post-views number-color">' +
+                  element.views +
+                  "</td>" +
+                  "</tr>"
+              );
+            });
+          }
+        );
+        $.get(
+          "http://localhost:3000/categories/mediaActor/community",
           function (data) {
             data.forEach((element) => {
               $("#table-body").append(

@@ -1,5 +1,4 @@
 const express = require("express");
-const mediaActorsRouter = require('./mediaActors')
 
 const categoriesRouter = express.Router();
 
@@ -63,9 +62,6 @@ var categories = [
 categoriesRouter.get("/", (req, res) => {
   res.json(categories);
 });
-
-categoriesRouter.get("/mediaActor",mediaActorsRouter);
-
 
 
 module.exports = categoriesRouter;
