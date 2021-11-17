@@ -77,7 +77,7 @@
           }
         });
         $.get(
-          "http://localhost:3000/categories/videos",
+          "http://localhost:3000/categories/mediaActors/videos",
           function (data) {
             $("#video-container").append('<ul id="video-posts"></ul>');
             data.forEach((element) => {
