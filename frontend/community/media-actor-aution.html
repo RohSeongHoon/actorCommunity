@@ -116,6 +116,37 @@
             });
           }
         );
+      
+        $.get(
+          "http://localhost:3000/categories/theaterActors/audition",
+          function (data) {
+            data.forEach((element) => {
+              $("#table-body").append(
+                '<tr class="community-table-body">' +
+                  '<td class="body-item community-post-title">' +
+                  '<a class="a-scope" href="' +
+                  element.link +
+                  '">' +
+                  element.title +
+                  '<span class="number-color">' +
+                  element.numberOfComment +
+                  "</span>" +
+                  "</a>" +
+                  "</td>" +
+                  '<td class="body-item community-post-writer">' +
+                  '<a class="a-scope" href="#">' +
+                  element.writer +
+                  "</a>" +
+                  "</td>" +
+                  '<td class="body-item community-post-views number-color">' +
+                  element.views +
+                  "</td>" +
+                  "</tr>"
+              );
+            });
+          }
+        );
+        
       });
     </script>
   </body>
