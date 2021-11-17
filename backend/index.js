@@ -219,6 +219,8 @@ app.use(cors());
 
 app.use("/categories", categoryRoute);
 
+
+
 app.get("/sidebar", (req, res) => {
   res.json(sidebar);
 });

@@ -16,7 +16,7 @@
   <body>
     <nav id="navbar-container">
       <div id="logo">
-        <h1><a class="logo__a" href="../index.html">연기 커뮤니티</a></h1>
+        <h1><a class="logo__a" href="../index.html">배우 커뮤니티</a></h1>
       </div>
       <form id="search">
         <input type="text" placeholder="검색어를 입력하세요" />
@@ -27,93 +27,7 @@
       </div>
     </nav>
     <nav class="category-bar">
-      <ul class="category-bar__container">
-        <li class="category-bar__list">
-          <a class="category-bar__list--title" href="./actor.html" rel="actor"
-            >연기</a
-          >
-          <ul class="categort-bar__content">
-            <li class="category-bar__content--item">
-              <a href="./actor.html">연기 영상</a>
-            </li>
-            <li class="category-bar__content--item"><a href="#">대본</a></li>
-            <li class="category-bar__content--item">
-              <a href="#">프로필함</a>
-            </li>
-            <li class="category-bar__content--item">
-              <a href="#">오디션 정보</a>
-            </li>
-            <li class="category-bar__content--item">
-              <a href="#">자유 게시판</a>
-            </li>
-          </ul>
-        </li>
-        <li class="category-bar__list">
-          <a
-            class="category-bar__list--title"
-            href="/test/community/musical.html"
-            rel="musical"
-            >뮤지컬</a
-          >
-          <ul class="categort-bar__content">
-            <li class="category-bar__content--item">
-              <a href="#">뮤지컬 영상</a>
-            </li>
-            <li class="category-bar__content--item">
-              <a href="#">뮤지컬 대본</a>
-            </li>
-            <li class="category-bar__content--item">
-              <a href="#">프로필함</a>
-            </li>
-            <li class="category-bar__content--item">
-              <a href="#">오디션 정보</a>
-            </li>
-            <li class="category-bar__content--item">
-              <a href="#">자유 게시판</a>
-            </li>
-          </ul>
-        </li>
-        <li class="category-bar__list">
-          <a
-            class="category-bar__list--title"
-            href="/test/community/vocald.html"
-            rel="vocald"
-            >보컬</a
-          >
-          <ul class="categort-bar__content">
-            <li class="category-bar__content--item">
-              <a href="#">보컬 영상</a>
-            </li>
-            <li class="category-bar__content--item"><a href="#">악보</a></li>
-            <li class="category-bar__content--item">
-              <a href="#">오디션 정보</a>
-            </li>
-            <li class="category-bar__content--item">
-              <a href="#">자유 게시판</a>
-            </li>
-          </ul>
-        </li>
-        <li class="category-bar__list">
-          <a
-            class="category-bar__list--title"
-            href="/test/community/performer.html"
-            rel="performer"
-            >연주자</a
-          >
-          <ul class="categort-bar__content">
-            <li class="category-bar__content--item">
-              <a href="#">연주 영상</a>
-            </li>
-            <li class="category-bar__content--item"><a href="#">악보</a></li>
-            <li class="category-bar__content--item">
-              <a href="#">오디션 정보</a>
-            </li>
-            <li class="category-bar__content--item">
-              <a href="#">자유 게시판</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+     
     </nav>
     <main>
       <h2 class="category-head">카테고리 이름</h2>
@@ -182,5 +96,45 @@
      </div>
     </div>
     </main>
+    <script>
+      $(document).ready(function(){
+        $.get("http://localhost:3000/categories", function (data) {
+          $(".category-bar").append(
+            '<ul id="category-bar__container" class="category-bar__container"></ul>'
+          );
+          for (var i = 0; i < data.length; i++) {
+            let category = data[i];
+            $("#category-bar__container").append(
+              '<li class="category-bar__list">' +
+                "<a" +
+                ' class="category-bar__list--title"' +
+                'href="../test/community/actor.html"' +
+                'rel="actor">' +
+                category.categoryKr +
+                "</a>" +
+                '<ul id="categort-bar__content' +
+                i +
+                '" class="categort-bar__content"></ul>'
+            );
+
+            for (let j = 0; j < category.contents.length; j++) {
+              let contents = category.contents[j];
+              console.log(contents.postLink);
+              console.log(contents.postNameKr);
+
+              $("#categort-bar__content" + i).append(
+                '<li class="category-bar__content--item">' +
+                  "<a href=" +
+                  contents.postLink +
+                  ">" +
+                  contents.postNameKr +
+                  "</a>" +
+                  "</li>"
+              );
+            }
+          }
+        });
+      })
+    </script>
   </body>
 </html>
