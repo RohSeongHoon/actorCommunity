@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const mainRoute = require('./main');
 const categoryRoute = require("./categories");
 const mainRouter = require("./main");
 
