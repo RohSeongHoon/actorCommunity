@@ -220,5 +220,8 @@ var auditionPosts = [
   mediaActorsRouter.get("/audition",(req,res)=>{
     res.json(auditionPosts)
   })
+  mediaActorsRouter.get("/freePosts",(req,res)=>{
+    res.json(freePosts)
+  })
 
 module.exports = mediaActorsRouter;
