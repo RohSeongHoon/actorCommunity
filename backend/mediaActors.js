@@ -181,7 +181,38 @@ var auditionPosts = [
       views: 3,
     },
   ];
-
+  var freePosts = [
+    {title: "자유게시판 ",
+    writer: "오와와오",
+    link: "/Users/nohsounghoon/Desktop/web/actorCommunity/community/nomal-post-main.html",
+    numberOfComment: 11,
+    views: 43,},
+    {title: "자유게시판 재목",
+    writer: "오와와오",
+    link: "/Users/nohsounghoon/Desktop/web/actorCommunity/community/nomal-post-main.html",
+    numberOfComment: 11,
+    views: 43,},
+    {title: "자ㅁㄴㅇㄹㅁㅇㄴㄹ유게시판 ",
+    writer: "오와와오",
+    link: "/Users/nohsounghoon/Desktop/web/actorCommunity/community/nomal-post-main.html",
+    numberOfComment: 11,
+    views: 43,},
+    {title: "자ㅁㄴㅇㄹ유게시판 ",
+    writer: "오와와오",
+    link: "/Users/nohsounghoon/Desktop/web/actorCommunity/community/nomal-post-main.html",
+    numberOfComment: 11,
+    views: 43,},
+    {title: "자유게ㅁㄴㅇㅎ시판 ",
+    writer: "오와와오",
+    link: "/Users/nohsounghoon/Desktop/web/actorCommunity/community/nomal-post-main.html",
+    numberOfComment: 11,
+    views: 43,},
+    {title: "자유ㅁㅇㄴㄹ1123게시판 ",
+    writer: "오와와오",
+    link: "/Users/nohsounghoon/Desktop/web/actorCommunity/community/nomal-post-main.html",
+    numberOfComment: 11,
+    views: 43,},
+  ]
   
   mediaActorsRouter.get("/videos",(req,res)=>{
     res.json(videoPosts)
