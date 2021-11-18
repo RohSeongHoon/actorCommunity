@@ -1,4 +1,5 @@
 const express = require('express');
+const model = require('./model')
 
 const mainRouter = express.Router();
 
@@ -19,38 +20,7 @@ var sidebar = [
     { category: "dancing", categoryKr: "무용", categoryLink: "#" },
   ];
   
-  var videos = {
-    videos: [
-      {
-        videoTitle: "한이 쌓인 시간 -양준모 ",
-        videoUrl: "https://www.youtube.com/embed/OsRogAzmsF8",
-        postLink:
-          "/Users/nohsounghoon/Desktop/web/actorCommunity/community/video-post-main.html",
-        videoWriter: "김아무게",
-      },
-      {
-        videoTitle: "빅마마 킬링벌스 ",
-        videoUrl: "https://www.youtube.com/embed/OsRogAzmsF8",
-        postLink:
-          "/Users/nohsounghoon/Desktop/web/actorCommunity/community/video-post-main.html",
-        videoWriter: "아무무",
-      },
-      {
-        videoTitle: "로니콜먼 근황 ",
-        videoUrl: "https://www.youtube.com/embed/nUCMTI2HPg0",
-        postLink:
-          "/Users/nohsounghoon/Desktop/web/actorCommunity/community/video-post-main.html",
-        videoWriter: "로니",
-      },
-      {
-        videoTitle: "마미손 킬링벌스 ",
-        videoUrl: "https://www.youtube.com/embed/jLUa6brtC-c",
-        postLink:
-          "/Users/nohsounghoon/Desktop/web/actorCommunity/community/video-post-main.html",
-        videoWriter: "릴릴",
-      },
-    ],
-  };
+ 
   
   var mainCommunities = {
     communities: [
@@ -215,7 +185,14 @@ var sidebar = [
   });
   
   mainRouter.get("/videos", (req, res) => {
-    res.json(videos);
+    let query = 'SELECT * FROM main_videos LIMIT 4;'
+    model.query(query,function(err,result){
+      if(err){
+        console.log(err);
+        return err
+      }
+      res.json(result)
+    })
   });
   
   mainRouter.get("/posts", (req, res) => {

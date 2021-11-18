@@ -102,23 +102,22 @@
           $("#video-container").append(
             ' <ul id="video-lists" class="video-lists" ></ul>'
           );
-          for (var i = 0; i < data.videos.length; i++) {
-            var video = data.videos[i];
-
+          for (var i = 0; i < data.length; i++) {
+            let video = data[i];
             $("#video-lists").append(
               '<li class="video-lists__item"><iframe class="video-list__item--video"' +
                 'id="video__url' +
                 i +
                 '"  src=' +
-                video.videoUrl +
+                video.url +
                 ' title="YouTube video player"></iframe>' +
                 '<a class="video-list__item--a"' +
                 ' id="video__a' +
                 i +
                 '" href="' +
-                video.postLink +
+                video.post_link +
                 '">' +
-                video.videoTitle +
+                video.title +
                 "</a></li>"
             );
           } // i+1 뺴기

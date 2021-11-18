@@ -5,7 +5,7 @@ let connection = mysql.createConnection({
     host:"localhost",
     user:'root',
     password:'qsc20215',
-    database:'sample'
+    database:'actor_community'
 })
 
 connection.connect(function(err){
