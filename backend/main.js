@@ -195,7 +195,15 @@ var sidebar = [
     })
   });
   
-  mainRouter.get("/posts", (req, res) => {
+  mainRouter.get("/community", (req, res) => {
+    let query = 'select * from main_communities;';
+    model.query(query,function(err,result){
+      if(err){
+        console.log(err);
+        return err
+      }
+      res.json(result);
+    })
     res.json(mainCommunities);
   });
 
