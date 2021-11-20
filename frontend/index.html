@@ -68,9 +68,6 @@
 
             for (let j = 0; j < category.contents.length; j++) {
               let contents = category.contents[j];
-              console.log(contents.postLink);
-              console.log(contents.postNameKr);
-
               $("#categort-bar__content" + i).append(
                 '<li class="category-bar__content--item">' +
                   "<a href=" +
@@ -132,8 +129,8 @@
           }
         });
         $.get("http://localhost:3000/mainPost/media_freepost", function (data) {
+          console.log(data);
             for (var i = 0; i < data.length; i++) {
-      
               $("#content0").append(
                 " <li><a href=" +
                   data[i].community_url +
@@ -143,9 +140,9 @@
                   );
                 }
             });
-        $.get("http://localhost:3000/mainPost/theath_freepost", function (data) {
+        $.get("http://localhost:3000/mainPost/theater_freepost", function (data) {
+          console.log(data);
             for (var i = 0; i < data.length; i++) {
-      
               $("#content1").append(
                 " <li><a href=" +
                   data[i].community_url +
@@ -156,6 +153,7 @@
                 }
             });
         $.get("http://localhost:3000/mainPost/musical_freepost", function (data) {
+          console.log(data);
             for (var i = 0; i < data.length; i++) {
       
               $("#content2").append(
@@ -168,8 +166,9 @@
                 }
             });
         $.get("http://localhost:3000/mainPost/dancer_freepost", function (data) {
+          console.log(data);
             for (var i = 0; i < data.length; i++) {
-      
+              
               $("#content3").append(
                 " <li><a href=" +
                   data[i].community_url +
