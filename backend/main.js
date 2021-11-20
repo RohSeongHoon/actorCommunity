@@ -3,31 +3,13 @@ const model = require('./model')
 
 const mainRouter = express.Router();
 
-var sidebar = [
-    {
-      category: "midaActor",
-      categoryKr: "매체연기",
-      categoryLink:
-        "/Users/nohsounghoon/Desktop/web/actorCommunity/community/media-actor.html",
-    },
-    {
-      category: "theaterActor",
-      categoryKr: "연극연기",
-      categoryLink:
-        "/Users/nohsounghoon/Desktop/web/actorCommunity/community/theaterActor.html",
-    },
-    { category: "musical", categoryKr: "뮤지컬", categoryLink: "#" },
-    { category: "dancing", categoryKr: "무용", categoryLink: "#" },
-  ];
+
   
  
   
   var mainCommunities = {
     communities: [
       {
-        link: "./community/actor.html",
-        category: "midaActor",
-        categoryKr: "매체연기",
         contents: [
           {
             postTitle: "배우는게 너무 느리고~",
@@ -64,10 +46,7 @@ var sidebar = [
         ],
       },
   
-      {
-        link: "./community/musical.html",
-        category: "theaterActor",
-        categoryKr: "연극연기",
+    {
         contents: [
           {
             postTitle: "뮤지컬 재밋다~",
@@ -103,9 +82,6 @@ var sidebar = [
       },
   
       {
-        link: "./community/vocal.html",
-        category: "musical",
-        categoryKr: "뮤지컬",
         contents: [
           {
             postTitle: "당근 당근",
@@ -141,9 +117,7 @@ var sidebar = [
       },
   
       {
-        link: "./community/performer.html",
-        category: "dancing",
-        categoryKr: "무용",
+     
         contents: [
           {
             postTitle: "과거엔 인간과 소통한 돌고래가 있었습니다",
@@ -180,9 +154,7 @@ var sidebar = [
     ],
   };
 
-  mainRouter.get("/sidebar", (req, res) => {
-    res.json(sidebar);
-  });
+  
   
   mainRouter.get("/videos", (req, res) => {
     let query = 'SELECT * FROM main_videos LIMIT 4;'
@@ -195,7 +167,7 @@ var sidebar = [
     })
   });
   
-  mainRouter.get("/community", (req, res) => {
+  mainRouter.get("/postTitle", (req, res) => {
     let query = 'select * from main_communities;';
     model.query(query,function(err,result){
       if(err){
@@ -204,7 +176,6 @@ var sidebar = [
       }
       res.json(result);
     })
-    res.json(mainCommunities);
   });
 
   module.exports = mainRouter;

@@ -83,21 +83,7 @@
             }
           }
         });
-        $.get("http://localhost:3000/sidebar", function (data) {
-          $("#side-navbar").append(
-            '<ul class="side-navbar__container" id="side-navbar__container">'
-          );
-          for (var i = 0; i < data.length; i++) {
-            $("#side-navbar__container").append(
-              '<li class="side-navbar__container--list">' +
-                '<a class="side-navbar__container--a" href="' +
-                data[i].categoryLink +
-                '">' +
-                data[i].categoryKr +
-                "</a>"
-            );
-          }
-        });
+        
         $.get("http://localhost:3000/videos", function (data) {
           $("#video-container").append(
             ' <ul id="video-lists" class="video-lists" ></ul>'
@@ -122,40 +108,39 @@
             );
           } // i+1 뺴기
         });
-        $.get("http://localhost:3000/posts", function (data) {
-          for (var i = 0; i < data.communities.length; i++) {
-            var community = data.communities[i];
+        $.get("http://localhost:3000/postTitle", function (data) {
+          for (var i = 0; i < data.length; i++) {
             $("#community__list").append(
               '<div class="community__list--item"' +
                 ' id="community__list--item"' +
                 i +
                 '">' +
                 "<a href=" +
-                community.link +
+                data[i].link +
                 " " +
                 ' id="communityTitle' +
                 i +
                 '"rel="' +
-                community.category +
+                data[i].category +
                 '-coummunity">' +
-                community.categoryKr +
+                data[i].category_kr +
                 "</a>" +
                 '<ul id="content' +
                 i +
                 '">' +
                 "</ul></div>"
             );
-            for (var j = 1; j < community.contents.length; j++) {
-              var content = community.contents[j];
-              $("#content" + i).append(
-                " <li><a href=" +
-                  content.communityUrl +
-                  ">" +
-                  content.postTitle +
-                  "</a></li>"
-              );
-            }
           }
+            // for (var j = 1; j < community.contents.length; j++) {
+            //   var content = community.contents[j];
+            //   $("#content" + i).append(
+            //     " <li><a href=" +
+            //       content.communityUrl +
+            //       ">" +
+            //       content.postTitle +
+            //       "</a></li>"
+            //   );
+            // }
 
           //메인 화면에 커뮤니티 카테고리 내부에 데이터 채우기
           //ul 내부에 데이터의 값만큼 li를 생성
