@@ -177,5 +177,16 @@ const mainRouter = express.Router();
       res.json(result);
     })
   });
+  mainRouter.get("/mainPost/:contents", (req, res) => {
+    let contents = req.params.contents;
+    let query = 'select * from '+contents+';' ;
+    model.query(query,function(err,result){
+      if(err){
+        console.log(err);
+        return err
+      }
+      res.json(result);
+    })
+  });
 
   module.exports = mainRouter;

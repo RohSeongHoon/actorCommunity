@@ -82,8 +82,7 @@
               );
             }
           }
-        });
-        
+        });   
         $.get("http://localhost:3000/videos", function (data) {
           $("#video-container").append(
             ' <ul id="video-lists" class="video-lists" ></ul>'
@@ -131,28 +130,68 @@
                 "</ul></div>"
             );
           }
-            // for (var j = 1; j < community.contents.length; j++) {
-            //   var content = community.contents[j];
-            //   $("#content" + i).append(
-            //     " <li><a href=" +
-            //       content.communityUrl +
-            //       ">" +
-            //       content.postTitle +
-            //       "</a></li>"
-            //   );
-            // }
-
-          //메인 화면에 커뮤니티 카테고리 내부에 데이터 채우기
-          //ul 내부에 데이터의 값만큼 li를 생성
-          //li를 생성하면서 id값고 데이터 넣기
-
-          //카테고리 이름도 json데이터로 받아와야함
-          //카테고리를 한글로 쓸거면 키마지막에 kr붙이기
-          //div에 아이디값을 주고 내부에 반복되는 데이터 지우기
-          //
         });
-      });
+        $.get("http://localhost:3000/mainPost/media_freepost", function (data) {
+            for (var i = 0; i < data.length; i++) {
+      
+              $("#content0").append(
+                " <li><a href=" +
+                  data[i].community_url +
+                  ">" +
+                  data[i].title + data[i].comment_count+
+                  "</a></li>"
+                  );
+                }
+            });
+        $.get("http://localhost:3000/mainPost/theath_freepost", function (data) {
+            for (var i = 0; i < data.length; i++) {
+      
+              $("#content1").append(
+                " <li><a href=" +
+                  data[i].community_url +
+                  ">" +
+                  data[i].title +
+                  "</a></li>"
+                  );
+                }
+            });
+        $.get("http://localhost:3000/mainPost/musical_freepost", function (data) {
+            for (var i = 0; i < data.length; i++) {
+      
+              $("#content2").append(
+                " <li><a href=" +
+                  data[i].community_url +
+                  ">" +
+                  data[i].title +
+                  "</a></li>"
+                  );
+                }
+            });
+        $.get("http://localhost:3000/mainPost/dancer_freepost", function (data) {
+            for (var i = 0; i < data.length; i++) {
+      
+              $("#content3").append(
+                " <li><a href=" +
+                  data[i].community_url +
+                  ">" +
+                  data[i].title +
+                  "</a></li>"
+                  );
+                }
+            });
+          })
+
     </script>
   </body>
-  <footer></footer>
+  <!-- 
+  메인 화면에 커뮤니티 카테고리 내부에 데이터 채우기
+  ul 내부에 데이터의 값만큼 li를 생성
+  li를 생성하면서 id값고 데이터 넣기
+
+
+
+카테고리 이름도 json데이터로 받아와야함
+  카테고리를 한글로 쓸거면 키마지막에 kr붙이기
+  div에 아이디값을 주고 내부에 반복되는 데이터 지우기   -->
 </html>
+
