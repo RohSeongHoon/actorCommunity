@@ -45,6 +45,7 @@
       </div>
     </main>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+   
     <script>
       $(document).ready(function () {
         $.get("http://localhost:3000/categories", function (data) {
@@ -128,7 +129,7 @@
             );
           }
         });
-        $.get("http://localhost:3000/mainPost/media_freepost", function (data) {
+        $.get("http://localhost:3000/mainPost/media_freepost",function (data) {
           console.log(data);
             for (var i = 0; i < data.length; i++) {
               $("#content0").append(
