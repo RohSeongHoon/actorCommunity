@@ -44,3 +44,8 @@ const mainRouter = express.Router();
   });
 
   module.exports = mainRouter;
+
+  // http://localhost:3000/home/mediaActor  매체연기 메인화면 비디오 화면 
+    //// http://localhost:3000/home/mediaActor?category_number=비디오,오디션,자유게시판
+      //// http://localhost:3000/home/mediaActor?category_number=비디오,오디션,자유게시판&post_id=클릭한 게시물번호
+  //반복
