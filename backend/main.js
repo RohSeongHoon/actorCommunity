@@ -26,13 +26,13 @@ const mainRouter = express.Router();
       res.json(result);
     })
   });
-  mainRouter.get("/mainPost/:contents", (req, res) => {
-    let contents = req.params.contents;
-    if(contents == "media_freepost"){contents = 1}
-    if(contents == "theater_freepost"){contents = 2}
-    if(contents == "musical_freepost"){contents = 3}
-    if(contents == "dancer_freepost"){contents = 4}
-    let query = 'select title from board where category_number ='+contents+' limit 6'  ;
+  mainRouter.get("/:category/freePost", (req, res) => {
+    let category = req.params.category;
+    if(category == "media"){contents = 1}
+    if(category == "theater"){contents = 2}
+    if(category == "musical"){contents = 3}
+    if(category == "dancer"){contents = 4}
+    let query = 'select board_id,title from board where category_number ='+contents+' limit 6'  ;
     //댓글수는 어떻게 넣지 
     model.query(query,function(err,result){
       if(err){

@@ -129,17 +129,17 @@
             );
           }
         });
-        $.get("http://localhost:3000/mainPost/media_freepost",function (data) {
+        $.get("http://localhost:3000/media/freePost",function (data) {
           console.log(data);
             for (var i = 0; i < data.length; i++) {      
               $("#content0").append(
-                " <li><a href=''>" +
+                " <li><a href='http://localhost:3000/media/freePost/"+data[i].board_id+"'>" +
                   data[i].title+
                   "</a></li>"
                   );
                 }
             });
-        $.get("http://localhost:3000/mainPost/theater_freepost", function (data) {
+        $.get("http://localhost:3000/theater/freePost", function (data) {
           console.log(data);
             for (var i = 0; i < data.length; i++) {
               $("#content1").append(
@@ -151,7 +151,7 @@
                   );
                 }
             });
-        $.get("http://localhost:3000/mainPost/musical_freepost", function (data) {
+        $.get("http://localhost:3000/musical/freePost", function (data) {
           console.log(data);
             for (var i = 0; i < data.length; i++) {
       
@@ -164,7 +164,7 @@
                   );
                 }
             });
-        $.get("http://localhost:3000/mainPost/dancer_freepost", function (data) {
+        $.get("http://localhost:3000/dancer/freePost", function (data) {
           console.log(data);
             for (var i = 0; i < data.length; i++) {
               
