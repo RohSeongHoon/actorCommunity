@@ -3,36 +3,40 @@ const model = require('./model')
 const cors = require("cors");
 
 const categoryRoute = require("./categories");
-const mainRouter = require("./main");
-const mediaActorsRouter = require('./mediaActors')
-const theaterActorsRouter = require('./theaterActors')
+const mainRoute = require("./main");
+const mediaActorsRoute = require('./mediaActors')
+const theaterActorsRoute = require('./theaterActors')
 
 const app = express();
 const port = 3000;
 
-
-
-
-
 app.use(cors());
 
-app.use('/',mainRouter)
+app.use('/',mainRoute)
 
 app.use("/categories", categoryRoute);
 
-app.use("/categories/mediaActors", mediaActorsRouter);
+app.use("/categories/mediaActors", mediaActorsRoute);
 
-app.use('/categories/theaterActors',theaterActorsRouter);
+app.use('/categories/theaterActors',theaterActorsRoute);
 
-app.get('/aaa',function(req,res){
-  let query = 'select * from sample21';
-  model.query(query,function(err,result){    
-    console.log(result);
-    res.json(result)
+app.get('/posts', function(req, res) {
+  let writer = req.query.writer;
+
+  if (!writer) {
+    return res.json({'error' : 'writer NOT FOUND'});
+  }
+
+  let query = 'SELECT * FROM board WHERE writer = "' + writer + '"';
+  console.log(query);
+  model.query(query, function(err, result) {
+    if (err) {
+      console.log(err);
+      return res.json({'error' : 'MYSQL ERROR'});
+    }
+    return res.json(result);
   })
-})
-console.log('이게 먼저실행');
-
+});
 
 app.listen(port, () => {
   console.log(`example app listening at http://localhost:${port}`);

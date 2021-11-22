@@ -30,7 +30,7 @@
     </nav>
 
     <main>
-      <h2 class="category-head">오디션정보</h2>
+      <h2 class="category-head">자유게시판</h2>
       <table id="community-table">
         <thead>
           <tr id="community-table-head">
@@ -84,11 +84,10 @@
             }
           }
         });
-      
-      
+  
       //html 재활용 하고 싶은데 이렇게 api주소만 변경해서 사용해도 되는건지 
         $.get(
-          "http://localhost:3000/categories/mediaActors/free_post",
+          "http://localhost:3000/media/freePost",
           function (data) {
             data.forEach((element) => {
               $("#table-body").append(
