@@ -2,7 +2,7 @@ const express = require("express");
 const model = require('./model')
 const cors = require("cors");
 
-const categoryRoute = require("./categories");
+const categoryRoute = require("./categoriesBar");
 const mainRoute = require("./main");
 const mediaActorsRoute = require('./mediaActors')
 const theaterActorsRoute = require('./theaterActors')
@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use('/',mainRoute)
 
-app.use("/categories", categoryRoute);
+app.use("/categoriesBar", categoryRoute);
 
 app.use("/categories/mediaActors", mediaActorsRoute);
 

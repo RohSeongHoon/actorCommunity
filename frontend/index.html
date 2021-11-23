@@ -48,7 +48,7 @@
   <!-- queryParameter -->
   <script>
     $(document).ready(function () {
-      $.get("http://localhost:3000/categories", function (data) {
+      $.get("http://localhost:3000/categoriesBar", function (data) {
         $("#category-bar").append(
           '<ul id="category-bar__container" class="category-bar__container"></ul>'
         );
@@ -60,26 +60,26 @@
             ' class="category-bar__list--title"' +
             'href="../test/community/actor.html"' +
             'rel="actor">' +
-            category.categoryKr +
+            category.name_kr +
             "</a>" +
             '<ul id="categort-bar__content' +
             i +
             '" class="categort-bar__content"></ul>'
           );
-
-          for (let j = 0; j < category.contents.length; j++) {
-            let contents = category.contents[j];
-            $("#categort-bar__content" + i).append(
+        }
+        $.get("http://localhost:3000/categoriesBar/subCategories?category_id="+category[i],function(data){          
+            
+          for (let j = 0; j < data.length; j++) {
+            let subCategory = data[j]
+            $("#categort-bar__content" + j).append(
               '<li class="category-bar__content--item">' +
-              "<a href=" +
-              contents.postLink +
-              ">" +
+              "<a href=''>" +
               contents.postNameKr +
               "</a>" +
               "</li>"
             );
           }
-        }
+        })
       });
 
       $.get("http://localhost:3000/videos", function (data) {
@@ -130,11 +130,10 @@
             "</ul></div>"
           );
         }
-
         $.get("http://localhost:3000/posts?cateogry=" + categories[i], function (data) {
           console.log(data);
           for (var i = 0; i < data.length; i++) {
-            $("#content0").append(
+            $("#content"+i).append(
               " <li><a href='http://localhost:3000/media/freePost/" +
               data[i].board_id +
               "'>" +
@@ -146,7 +145,7 @@
         $.get("http://localhost:3000/theater/freePost", function (data) {
           console.log(data);
           for (var i = 0; i < data.length; i++) {
-            $("#content1").append(
+            $("#content"+i).append(
               " <li><a href=" +
               data[i].community_url +
               ">" +
@@ -158,7 +157,7 @@
         $.get("http://localhost:3000/musical/freePost", function (data) {
           console.log(data);
           for (var i = 0; i < data.length; i++) {
-            $("#content2").append(
+            $("#content"+i).append(
               " <li><a href=" +
               data[i].community_url +
               ">" +
@@ -170,7 +169,7 @@
         $.get("http://localhost:3000/dancer/freePost", function (data) {
           console.log(data);
           for (var i = 0; i < data.length; i++) {
-            $("#content3").append(
+            $("#content"+i).append(
               " <li><a href=" +
               data[i].community_url +
               ">" +

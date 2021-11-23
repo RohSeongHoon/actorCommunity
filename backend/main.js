@@ -26,6 +26,7 @@ const mainRouter = express.Router();
       res.json(result);
     })
   });
+
   mainRouter.get("/:category/freePost", (req, res) => {
     let category = req.params.category;
     if(category == "media"){contents = 1}
@@ -33,7 +34,7 @@ const mainRouter = express.Router();
     if(category == "musical"){contents = 3}
     if(category == "dancer"){contents = 4}
     let query = 'select board_id,title from board where category_number ='+contents+' limit 6'  ;
-    //댓글수는 어떻게 넣지 
+    
     model.query(query,function(err,result){
       if(err){
         console.log(err);
