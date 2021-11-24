@@ -15,7 +15,7 @@ mainRouter.get("/videos", (req, res) => {
 });
 
 mainRouter.get("/postTitle", (req, res) => {
-  let query = "select * from main_communities;";
+  let query = "select name_kr,name from categories;";
   model.query(query, function (err, result) {
     if (err) {
       console.log(err);

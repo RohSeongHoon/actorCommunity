@@ -48,33 +48,31 @@
   <!-- queryParameter -->
   <script>
     $(document).ready(function () {
-      $.get("http://localhost:3000/categoryBar", function (data) {
+      $.get("http://localhost:3000/categoryBar", function (categories) {
         $("#category-bar").append(
           '<ul id="category-bar__container" class="category-bar__container"></ul>'
         );
-        for (var i = 0; i < data.length; i++) {
-          let category = data[i];
+        for (var i = 0; i < categories.length; i++) {
           $("#category-bar__container").append(
             '<li class="category-bar__list">' +
             "<a" +
             ' class="category-bar__list--title"' +
             'href="../test/community/actor.html"' +
             'rel="actor">' +
-            category.name_kr +
+            categories[i].name_kr +
             "</a>" +
             '<ul id="categort-bar__content' +
             i +
             '" class="categort-bar__content"></ul>'
           );
         }
-        $.get("http://localhost:3000/categoriesBar/subCategories?category_id="+category[i],function(data){          
-            
-          for (let j = 0; j < data.length; j++) {
-            let subCategory = data[j]
+        $.get("http://localhost:3000/categoriesBar/subCategories?category_id="+1,function(subCategories){          
+          console.log(subCategories);
+          for (let j = 0; j < subCategories.length; j++) {    
             $("#categort-bar__content" + j).append(
               '<li class="category-bar__content--item">' +
               "<a href=''>" +
-              contents.postNameKr +
+              subCategories[j].name_kr +
               "</a>" +
               "</li>"
             );
@@ -115,14 +113,13 @@
             i +
             '">' +
             "<a href=" +
-            data[i].link +
             " " +
             ' id="communityTitle' +
             i +
             '"rel="' +
-            data[i].category +
+            data[i].name +
             '-coummunity">' +
-            data[i].category_kr +
+            data[i].name_kr +
             "</a>" +
             '<ul id="content' +
             i +
@@ -137,42 +134,6 @@
               " <li><a href='http://localhost:3000/media/freePost/" +
               data[i].board_id +
               "'>" +
-              data[i].title +
-              "</a></li>"
-            );
-          }
-        });
-        $.get("http://localhost:3000/theater/freePost", function (data) {
-          console.log(data);
-          for (var i = 0; i < data.length; i++) {
-            $("#content"+i).append(
-              " <li><a href=" +
-              data[i].community_url +
-              ">" +
-              data[i].title +
-              "</a></li>"
-            );
-          }
-        });
-        $.get("http://localhost:3000/musical/freePost", function (data) {
-          console.log(data);
-          for (var i = 0; i < data.length; i++) {
-            $("#content"+i).append(
-              " <li><a href=" +
-              data[i].community_url +
-              ">" +
-              data[i].title +
-              "</a></li>"
-            );
-          }
-        });
-        $.get("http://localhost:3000/dancer/freePost", function (data) {
-          console.log(data);
-          for (var i = 0; i < data.length; i++) {
-            $("#content"+i).append(
-              " <li><a href=" +
-              data[i].community_url +
-              ">" +
               data[i].title +
               "</a></li>"
             );

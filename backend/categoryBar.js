@@ -16,8 +16,7 @@ categoryRouter.get("/", (req, res) => {
 
 categoryRouter.get("/subCategories", (req, res) => {
   let subCategory = res.query.subCategory;
-  let query =
-    "select * from sub_categories where parent_category_id=" + subCategory;
+  let query = "select * from sub_categories where categoy_id=" + subCategory;
   model.query(query, function (err, result) {
     if (err) {
       console.log("categoriesBar.js 24번 에러");
