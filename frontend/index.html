@@ -48,27 +48,26 @@
   <!-- queryParameter -->
   <script>
     $(document).ready(function () {
-      $.get("http://localhost:3000/categoryBar", function (categories) {
+      $.get("http://localhost:3000/categoryBar", function (data) {
         $("#category-bar").append(
           '<ul id="category-bar__container" class="category-bar__container"></ul>'
         );
-        for (var i = 0; i < categories.length; i++) {
+        for (var i = 0; i < data.length; i++) {
+          let category = data[i]
           $("#category-bar__container").append(
             '<li class="category-bar__list">' +
             "<a" +
             ' class="category-bar__list--title"' +
             'href="../test/community/actor.html"' +
             'rel="actor">' +
-            categories[i].name_kr +
+            category.name_kr +
             "</a>" +
             '<ul id="categort-bar__content' +
             i +
             '" class="categort-bar__content"></ul>'
           );
-        }
-        $.get("http://localhost:3000/categoriesBar/subCategories?category_id="+1,function(subCategories){          
-          console.log(subCategories);
-          for (let j = 0; j < subCategories.length; j++) {    
+
+          for (let j = 0; j < subCategories.length; j++) {
             $("#categort-bar__content" + j).append(
               '<li class="category-bar__content--item">' +
               "<a href=''>" +
@@ -77,7 +76,7 @@
               "</li>"
             );
           }
-        })
+        }
       });
 
       $.get("http://localhost:3000/videos", function (data) {
@@ -130,7 +129,7 @@
         $.get("http://localhost:3000/posts?cateogry=" + categories[i], function (data) {
           console.log(data);
           for (var i = 0; i < data.length; i++) {
-            $("#content"+i).append(
+            $("#content" + i).append(
               " <li><a href='http://localhost:3000/media/freePost/" +
               data[i].board_id +
               "'>" +
