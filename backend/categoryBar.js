@@ -25,7 +25,8 @@ categoryRouter.get("/", (req, res) => {
           console.log(err);
           return res.err;
         }
-        result[i].(subCategories);
+        result[i].subCategories = subCategories;
+        console.log(result[i]);
       });
     }
     return res.json(result);
