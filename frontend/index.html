@@ -67,11 +67,12 @@
             '" class="categort-bar__content"></ul>'
           );
 
-          for (let j = 0; j < subCategories.length; j++) {
+          for (let j = 0; j < category[i].subCategories.length; j++) {
+            let subCategory = category[i].subCategories[j]
             $("#categort-bar__content" + j).append(
               '<li class="category-bar__content--item">' +
               "<a href=''>" +
-              subCategories[j].name_kr +
+              subCategories.name_kr +
               "</a>" +
               "</li>"
             );
