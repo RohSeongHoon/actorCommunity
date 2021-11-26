@@ -126,9 +126,6 @@
             '">' +
             "</ul></div>"
           );
-        }
-        $.get("http://localhost:3000/posts?cateogry=" + categories[i], function (data) {
-          console.log(data);
           for (var i = 0; i < data.length; i++) {
             $("#content" + i).append(
               " <li><a href='http://localhost:3000/media/freePost/" +
@@ -138,8 +135,10 @@
               "</a></li>"
             );
           }
-        });
+
+        }
       });
+
     });
   </script>
 </body>
