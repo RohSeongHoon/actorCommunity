@@ -6,13 +6,7 @@ const categoryRouter = express.Router();
 categoryRouter.get("/", (req, res) => {
   let query = "select * from categories;";
 
-  model.query(query, function (err, result) {
-    if (err) {
-      console.log(err);
-      return res.err;
-    }
-  });
-  model.query(query, function (err, result) {
+  model.query(query, async function (err, result) {
     if (err) {
       console.log(err);
       return res.err;
@@ -20,13 +14,16 @@ categoryRouter.get("/", (req, res) => {
     for (let i = 1; i < result.length; i++) {
       let getSubCategories =
         "select * from sub_categories where parent_category_id=" + result[i].id;
-      model.query(getSubCategories, function (err, subCategories) {
-        if (err) {
-          console.log(err);
-          return res.err;
+      model.query(
+        getSubCategories,
+        await function (err, subCategories) {
+          if (err) {
+            console.log(err);
+            return res.err;
+          }
+          result[i].subCategories = subCategories;
         }
-        result[i].subCategories = subCategories;
-      });
+      );
     }
     return res.json(result);
   });
