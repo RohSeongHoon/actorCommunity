@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "bluebird": "^3.7.2",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
