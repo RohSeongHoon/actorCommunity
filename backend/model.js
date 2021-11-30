@@ -10,7 +10,7 @@
 // let poolPromise = pool.promise();
 //블루버드 모듈사용 하지만 promise()함수가 이해안되서 새로 짬
 const mysql = require("mysql2/promise");
-const pool = mysql.createPool({
+const pool = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "qsc20215",

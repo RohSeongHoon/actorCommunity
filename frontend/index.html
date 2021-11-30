@@ -47,37 +47,37 @@
   <!-- 쿼리파람 -->
   <!-- queryParameter -->
   <script>
-    $(document).ready(function () {
+    $(document).ready( function () {
       $.get("http://localhost:3000/categoryBar", function (data) {
-        $("#category-bar").append(
-          '<ul id="category-bar__container" class="category-bar__container"></ul>'
-        );
-        for (var i = 0; i < data.length; i++) {
-          let category = data[i]
-          $("#category-bar__container").append(
-            '<li class="category-bar__list">' +
-            "<a" +
-            ' class="category-bar__list--title"' +
-            'href="../test/community/actor.html"' +
-            'rel="actor">' +
-            category.name_kr +
-            "</a>" +
-            '<ul id="categort-bar__content' +
-            i +
-            '" class="categort-bar__content"></ul>'
-          );
+        // $("#category-bar").append(
+        //   '<ul id="category-bar__container" class="category-bar__container"></ul>'
+        // );
+        // for (var i = 0; i < data.length; i++) {
+        //   let category = data[i]
+        //   $("#category-bar__container").append(
+        //     '<li class="category-bar__list">' +
+        //     "<a" +
+        //     ' class="category-bar__list--title"' +
+        //     'href="../test/community/actor.html"' +
+        //     'rel="actor">' +
+        //     category.name_kr +
+        //     "</a>" +
+        //     '<ul id="categort-bar__content' +
+        //     i +
+        //     '" class="categort-bar__content"></ul>'
+        //   );
 
-          for (let j = 0; j < category[i].subCategories.length; j++) {
-            let subCategory = category[i].subCategories[j]
-            $("#categort-bar__content" + j).append(
-              '<li class="category-bar__content--item">' +
-              "<a href=''>" +
-              subCategories.name_kr +
-              "</a>" +
-              "</li>"
-            );
-          }
-        }
+        //   for (let j = 0; j < category[i].subCategories.length; j++) {
+        //     let subCategory = category[i].subCategories[j]
+        //     $("#categort-bar__content" + j).append(
+        //       '<li class="category-bar__content--item">' +
+        //       "<a href=''>" +
+        //       subCategories.name_kr +
+        //       "</a>" +
+        //       "</li>"
+        //     );
+        //   }
+        // }
       });
 
       $.get("http://localhost:3000/videos", function (data) {

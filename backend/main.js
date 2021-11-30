@@ -3,29 +3,31 @@ const model = require("./model");
 
 const mainRouter = express.Router();
 
-mainRouter.get("/videos", (req, res) => {
+mainRouter.get("/videos", async (req, res) => {
   let query = "SELECT * FROM main_videos LIMIT 4;";
-  model.query(query, function (err, result) {
-    if (err) {
-      console.log(err);
-      return err;
-    }
-    res.json(result);
-  });
+  try {
+    let [mainVideos] = await model.query(query, function (err, result) {
+      res.json(mainVideos);
+    });
+  } catch (err) {
+    console.log(err);
+    return;
+  }
 });
 
-mainRouter.get("/postTitle", (req, res) => {
+mainRouter.get("/postTitle", async (req, res) => {
   let query = "select post_id,name_kr,name from categories;";
-  model.query(query, function (err, result) {
-    if (err) {
-      console.log(err);
-      return err;
-    }
-    res.json(result);
-  });
+  try {
+    let [postTitle] = await model.query(query, function (err, result) {
+      res.json(postTitle);
+    });
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 });
 
-mainRouter.get("/:category/freePost", (req, res) => {
+mainRouter.get("/:category/freePost", async (req, res) => {
   let category = req.params.category;
   if (category == "media") {
     contents = 1;
@@ -43,14 +45,14 @@ mainRouter.get("/:category/freePost", (req, res) => {
     "select board_id,title from board where category_number =" +
     contents +
     " limit 6";
-
-  model.query(query, function (err, result) {
-    if (err) {
-      console.log(err);
-      return err;
-    }
-    res.json(result);
-  });
+  try {
+    let [freePost] = await model.query(query, function (err, result) {
+      res.json(freePost);
+    });
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 });
 
 module.exports = mainRouter;
