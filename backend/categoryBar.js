@@ -22,7 +22,7 @@ categoryRouter.get("/", async (req, res) => {
 });
 
 categoryRouter.get("/subcategories", async (req, res) => {
-  const query = "select * from sub_cateogires";
+  const query = "select * from sub_categories";
   try {
     let [subCategories] = await model.query(query);
     return res.json(subCategories);
