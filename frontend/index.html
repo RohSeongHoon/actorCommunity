@@ -49,9 +49,6 @@
  <script>
     $(document).ready(function () {
       $.get("http://localhost:3000/categoryBar", function (data) {
-        console.log("test1");
-        console.log(data.length);
-
         for (var i = 0; i < data.length; i++) {
           let category = data[i]
           $("#category-bar__container").append(
@@ -78,68 +75,68 @@
           }
         }
       });
+    
+
+      $.get("http://localhost:3000/videos", function (data) {
+        $("#video-container").append(
+          ' <ul id="video-lists" class="video-lists" ></ul>'
+        );
+        for (var i = 0; i < data.length; i++) {
+          let video = data[i];
+          $("#video-lists").append(
+            '<li class="video-lists__item"><iframe class="video-list__item--video"' +
+            'id="video__url' +
+            i +
+            '"  src=' +
+            video.url +
+            ' title="YouTube video player"></iframe>' +
+            '<a class="video-list__item--a"' +
+            ' id="video__a' +
+            i +
+            '" href="' +
+            video.post_link +
+            '">' +
+            video.title +
+            "</a></li>"
+          );
+        } // i+1 뺴기
+      });
+
+      $.get("http://localhost:3000/postTitle", function (data) {
+        for (var i = 0; i < data.length; i++) {
+          $("#community__list").append(
+            '<div class="community__list--item"' +
+            ' id="community__list--item"' +
+            i +
+            '">' +
+            "<a href=" +
+            " " +
+            ' id="communityTitle' +
+            i +
+            '"rel="' +
+            data[i].name +
+            '-coummunity">' +
+            data[i].name_kr +
+            "</a>" +
+            '<ul id="content' +
+            i +
+            '">' +
+            "</ul></div>"
+          );
+          for (var i = 0; i < data.length; i++) {
+            $("#content" + i).append(
+              " <li><a href='http://localhost:3000/media/freePost/" +
+              data[i].board_id +
+              "'>" +
+              data[i].title +
+              "</a></li>"
+            );
+          }
+
+        }
+      });
+
     });
-
-    //   $.get("http://localhost:3000/videos", function (data) {
-    //     $("#video-container").append(
-    //       ' <ul id="video-lists" class="video-lists" ></ul>'
-    //     );
-    //     for (var i = 0; i < data.length; i++) {
-    //       let video = data[i];
-    //       $("#video-lists").append(
-    //         '<li class="video-lists__item"><iframe class="video-list__item--video"' +
-    //         'id="video__url' +
-    //         i +
-    //         '"  src=' +
-    //         video.url +
-    //         ' title="YouTube video player"></iframe>' +
-    //         '<a class="video-list__item--a"' +
-    //         ' id="video__a' +
-    //         i +
-    //         '" href="' +
-    //         video.post_link +
-    //         '">' +
-    //         video.title +
-    //         "</a></li>"
-    //       );
-    //     } // i+1 뺴기
-    //   });
-
-    //   $.get("http://localhost:3000/postTitle", function (data) {
-    //     for (var i = 0; i < data.length; i++) {
-    //       $("#community__list").append(
-    //         '<div class="community__list--item"' +
-    //         ' id="community__list--item"' +
-    //         i +
-    //         '">' +
-    //         "<a href=" +
-    //         " " +
-    //         ' id="communityTitle' +
-    //         i +
-    //         '"rel="' +
-    //         data[i].name +
-    //         '-coummunity">' +
-    //         data[i].name_kr +
-    //         "</a>" +
-    //         '<ul id="content' +
-    //         i +
-    //         '">' +
-    //         "</ul></div>"
-    //       );
-    //       for (var i = 0; i < data.length; i++) {
-    //         $("#content" + i).append(
-    //           " <li><a href='http://localhost:3000/media/freePost/" +
-    //           data[i].board_id +
-    //           "'>" +
-    //           data[i].title +
-    //           "</a></li>"
-    //         );
-    //       }
-
-    //     }
-    //   });
-
-    // });
   </script>
 </body>
 //
