@@ -6,9 +6,8 @@ const mainRouter = express.Router();
 mainRouter.get("/videos", async (req, res) => {
   let query = "SELECT * FROM main_videos LIMIT 4;";
   try {
-    let [mainVideos] = await model.query(query, function (err, result) {
-      res.json(mainVideos);
-    });
+    let [mainVideos] = await model.query(query);
+    res.json(mainVideos);
   } catch (err) {
     console.log(err);
     return;
@@ -16,11 +15,10 @@ mainRouter.get("/videos", async (req, res) => {
 });
 
 mainRouter.get("/postTitle", async (req, res) => {
-  let query = "select post_id,name_kr,name from categories;";
+  let query = "select id,name_kr,name from categories;";
   try {
-    let [postTitle] = await model.query(query, function (err, result) {
-      res.json(postTitle);
-    });
+    let [postTitle] = await model.query(query);
+    res.json(postTitle);
   } catch (err) {
     console.log(err);
     return err;
@@ -46,9 +44,8 @@ mainRouter.get("/:category/freePost", async (req, res) => {
     contents +
     " limit 6";
   try {
-    let [freePost] = await model.query(query, function (err, result) {
-      res.json(freePost);
-    });
+    let [freePost] = await model.query(query);
+    res.json(freePost);
   } catch (err) {
     console.log(err);
     return err;

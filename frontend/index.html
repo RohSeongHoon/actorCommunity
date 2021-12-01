@@ -33,7 +33,7 @@
     </div>
   </nav>
   <nav id="category-bar" class="category-bar">
-    <ul class="category-bar__container"></ul>
+    <ul id="category-bar__container" class="category-bar__container"></ul>
   </nav>
   <div class="side-navbar" id="side-navbar"></div>
   <main>
@@ -47,38 +47,48 @@
   <!-- 쿼리파람 -->
   <!-- queryParameter -->
   <script>
-    $(document).ready( function () {
-      $.get("http://localhost:3000/categoryBar", function (data) {
-        // $("#category-bar").append(
-        //   '<ul id="category-bar__container" class="category-bar__container"></ul>'
-        // );
-        // for (var i = 0; i < data.length; i++) {
-        //   let category = data[i]
-        //   $("#category-bar__container").append(
-        //     '<li class="category-bar__list">' +
-        //     "<a" +
-        //     ' class="category-bar__list--title"' +
-        //     'href="../test/community/actor.html"' +
-        //     'rel="actor">' +
-        //     category.name_kr +
-        //     "</a>" +
-        //     '<ul id="categort-bar__content' +
-        //     i +
-        //     '" class="categort-bar__content"></ul>'
-        //   );
+    $(document).ready(function () {
+      let getCategories = async () => {
+        $.get("http://localhost:3000/categoryBar",await function (data) {
+          
+          for (var i = 0; i < data.length; i++) {
+            let category = data[i]
+            $("#category-bar__container").append(
+              '<li class="category-bar__list">' +
+              "<a" +
+              ' class="category-bar__list--title"' +
+              'href="../test/community/actor.html"' +
+              'rel="actor">' +
+              category.name_kr +
+              "</a>" +
+              '<ul id="category-bar__content' +
+              i +
+              '" class="category-bar__content"></ul>'
+            );
+          }
+        });
+      }
+      let getSubCategories = async()=>{
+      $.get("http://localhost:3000/categoryBar/subCategories",await function (data) {
+        console.log(data);
+        for (let i = 0; i < data.length; i++) {
+          let subCategory = data[i]
+          $('#category-bar__content'+i).append(
+             '<li class="category-bar__content--item">' +
+               "<a href=''>" +
+               subCategory.name_kr +
+               "</a>" +
+               "</li>"
+             )
+        }
+      })
+    }
+      getCategories()
+      .then(getSubCategories)
+      .catch(function(err){console.log(err);})
+      
+      
 
-        //   for (let j = 0; j < category[i].subCategories.length; j++) {
-        //     let subCategory = category[i].subCategories[j]
-        //     $("#categort-bar__content" + j).append(
-        //       '<li class="category-bar__content--item">' +
-        //       "<a href=''>" +
-        //       subCategories.name_kr +
-        //       "</a>" +
-        //       "</li>"
-        //     );
-        //   }
-        // }
-      });
 
       $.get("http://localhost:3000/videos", function (data) {
         $("#video-container").append(
