@@ -46,121 +46,112 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <!-- 쿼리파람 -->
   <!-- queryParameter -->
-  <script>
+ <script>
     $(document).ready(function () {
-      let getCategories = async () => {
-        $.get("http://localhost:3000/categoryBar",await function (data) {
-          
-          for (var i = 0; i < data.length; i++) {
-            let category = data[i]
-            $("#category-bar__container").append(
-              '<li class="category-bar__list">' +
-              "<a" +
-              ' class="category-bar__list--title"' +
-              'href="../test/community/actor.html"' +
-              'rel="actor">' +
-              category.name_kr +
-              "</a>" +
-              '<ul id="category-bar__content' +
-              i +
-              '" class="category-bar__content"></ul>'
-            );
-          }
-        });
-      }
-      let getSubCategories = async()=>{
-      $.get("http://localhost:3000/categoryBar/subCategories",await function (data) {
-        console.log(data);
-        for (let i = 0; i < data.length; i++) {
-          let subCategory = data[i]
-          $('#category-bar__content'+i).append(
-             '<li class="category-bar__content--item">' +
-               "<a href=''>" +
-               subCategory.name_kr +
-               "</a>" +
-               "</li>"
-             )
-        }
-      })
-    }
-      getCategories()
-      .then(getSubCategories)
-      .catch(function(err){console.log(err);})
-      
-      
+      $.get("http://localhost:3000/categoryBar", function (data) {
+        console.log("test1");
+        console.log(data.length);
 
-
-      $.get("http://localhost:3000/videos", function (data) {
-        $("#video-container").append(
-          ' <ul id="video-lists" class="video-lists" ></ul>'
-        );
         for (var i = 0; i < data.length; i++) {
-          let video = data[i];
-          $("#video-lists").append(
-            '<li class="video-lists__item"><iframe class="video-list__item--video"' +
-            'id="video__url' +
-            i +
-            '"  src=' +
-            video.url +
-            ' title="YouTube video player"></iframe>' +
-            '<a class="video-list__item--a"' +
-            ' id="video__a' +
-            i +
-            '" href="' +
-            video.post_link +
-            '">' +
-            video.title +
-            "</a></li>"
-          );
-        } // i+1 뺴기
-      });
-
-      $.get("http://localhost:3000/postTitle", function (data) {
-        for (var i = 0; i < data.length; i++) {
-          $("#community__list").append(
-            '<div class="community__list--item"' +
-            ' id="community__list--item"' +
-            i +
-            '">' +
-            "<a href=" +
-            " " +
-            ' id="communityTitle' +
-            i +
-            '"rel="' +
-            data[i].name +
-            '-coummunity">' +
-            data[i].name_kr +
+          let category = data[i]
+          $("#category-bar__container").append(
+            '<li class="category-bar__list">' +
+            "<a" +
+            ' class="category-bar__list--title"' +
+            'href="../test/community/actor.html"' +
+            'rel="actor">' +
+            category.name_kr +
             "</a>" +
-            '<ul id="content' +
+            '<ul id="category-bar__content' +
             i +
-            '">' +
-            "</ul></div>"
+            '" class="category-bar__content"></ul>'
           );
-          for (var i = 0; i < data.length; i++) {
-            $("#content" + i).append(
-              " <li><a href='http://localhost:3000/media/freePost/" +
-              data[i].board_id +
-              "'>" +
-              data[i].title +
-              "</a></li>"
-            );
+          for (let j = 0; j < category.subCategory.length; j++) {
+            let subCategory = category.subCategory[j];
+            $('#category-bar__content' + i).append(
+              '<li class="category-bar__content--item">' +
+              "<a href=''>" +
+              subCategory.name_kr +
+              "</a>" +
+              "</li>"
+            )
           }
-
         }
       });
-
     });
+
+    //   $.get("http://localhost:3000/videos", function (data) {
+    //     $("#video-container").append(
+    //       ' <ul id="video-lists" class="video-lists" ></ul>'
+    //     );
+    //     for (var i = 0; i < data.length; i++) {
+    //       let video = data[i];
+    //       $("#video-lists").append(
+    //         '<li class="video-lists__item"><iframe class="video-list__item--video"' +
+    //         'id="video__url' +
+    //         i +
+    //         '"  src=' +
+    //         video.url +
+    //         ' title="YouTube video player"></iframe>' +
+    //         '<a class="video-list__item--a"' +
+    //         ' id="video__a' +
+    //         i +
+    //         '" href="' +
+    //         video.post_link +
+    //         '">' +
+    //         video.title +
+    //         "</a></li>"
+    //       );
+    //     } // i+1 뺴기
+    //   });
+
+    //   $.get("http://localhost:3000/postTitle", function (data) {
+    //     for (var i = 0; i < data.length; i++) {
+    //       $("#community__list").append(
+    //         '<div class="community__list--item"' +
+    //         ' id="community__list--item"' +
+    //         i +
+    //         '">' +
+    //         "<a href=" +
+    //         " " +
+    //         ' id="communityTitle' +
+    //         i +
+    //         '"rel="' +
+    //         data[i].name +
+    //         '-coummunity">' +
+    //         data[i].name_kr +
+    //         "</a>" +
+    //         '<ul id="content' +
+    //         i +
+    //         '">' +
+    //         "</ul></div>"
+    //       );
+    //       for (var i = 0; i < data.length; i++) {
+    //         $("#content" + i).append(
+    //           " <li><a href='http://localhost:3000/media/freePost/" +
+    //           data[i].board_id +
+    //           "'>" +
+    //           data[i].title +
+    //           "</a></li>"
+    //         );
+    //       }
+
+    //     }
+    //   });
+
+    // });
   </script>
 </body>
+//
 <!-- 
-        메인 화면에 커뮤니티 카테고리 내부에 데이터 채우기
-        ul 내부에 데이터의 값만큼 li를 생성
-        li를 생성하면서 id값고 데이터 넣기
+//         메인 화면에 커뮤니티 카테고리 내부에 데이터 채우기
+//         ul 내부에 데이터의 값만큼 li를 생성
+//         li를 생성하면서 id값고 데이터 넣기
       
       
       
-      카테고리 이름도 json데이터로 받아와야함
-        카테고리를 한글로 쓸거면 키마지막에 kr붙이기
-        div에 아이디값을 주고 내부에 반복되는 데이터 지우기   -->
+//       카테고리 이름도 json데이터로 받아와야함
+//         카테고리를 한글로 쓸거면 키마지막에 kr붙이기
+//         div에 아이디값을 주고 내부에 반복되는 데이터 지우기   -->
 
 </html>

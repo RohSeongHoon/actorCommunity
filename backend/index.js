@@ -1,12 +1,10 @@
 const express = require("express");
-const model = require("./model");
 const cors = require("cors");
-
-const categoryRoute = require("./categoryBar");
-const mainRoute = require("./main");
-
 const app = express();
 const port = 3000;
+const model = require("./model");
+const categoryRoute = require("./categoryBar");
+const mainRoute = require("./main");
 
 app.use(cors());
 
