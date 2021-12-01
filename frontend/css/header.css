@@ -92,7 +92,7 @@
   padding: 20px 30px;
   color: black;
 }
-.categort-bar__content {
+.category-bar__content {
   list-style: none;
   padding-left: 0px;
   width: 140px;
@@ -119,7 +119,7 @@
 .category-bar__list:hover > a {
   color: #121212;
 }
-.category-bar__list:hover .categort-bar__content {
+.category-bar__list:hover .category-bar__content {
   display: block;
 }
 .category-bar__content--item:hover {
