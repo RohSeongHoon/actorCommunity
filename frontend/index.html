@@ -46,7 +46,7 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <!-- 쿼리파람 -->
   <!-- queryParameter -->
- <script>
+  <script>
     $(document).ready(function () {
       $.get("http://localhost:3000/categoryBar", function (data) {
         for (var i = 0; i < data.length; i++) {
@@ -75,7 +75,6 @@
           }
         }
       });
-    
 
       $.get("http://localhost:3000/videos", function (data) {
         $("#video-container").append(
@@ -137,7 +136,6 @@
 
         }
       });
-
     });
   </script>
 </body>
