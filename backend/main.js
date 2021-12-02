@@ -25,27 +25,22 @@ mainRouter.get("/postTitle", async (req, res) => {
   }
 });
 
-mainRouter.get("/:category/freePost", async (req, res) => {
-  let category = req.params.category;
-  if (category == "media") {
-    contents = 1;
-  }
-  if (category == "theater") {
-    contents = 2;
-  }
-  if (category == "musical") {
-    contents = 3;
-  }
-  if (category == "dancer") {
-    contents = 4;
-  }
-  let query =
-    "select board_id,title from board where category_number =" +
-    contents +
-    " limit 6";
+mainRouter.get("/post", async (req, res) => {
+  let query = "select name_kr,id from categories";
   try {
-    let [freePost] = await model.query(query);
-    res.json(freePost);
+    let [categories] = await model.query(query);
+    for (let i = 0; i < categories.length; i++) {
+      let categoryId = categories[i].id;
+      let [postContents] = await model.query(
+        "select * from posts where category_id =" +
+          categoryId +
+          " and sub_category_id = (select id from sub_categories where name_kr = '자유게시판'and parent_category_id = " +
+          categoryId +
+          " )"
+      );
+      categories[i].contents = postContents;
+    }
+    return res.json(categories);
   } catch (err) {
     console.log(err);
     return err;

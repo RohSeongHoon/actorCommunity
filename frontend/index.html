@@ -40,13 +40,30 @@
     <h3 class="video-head">new</h3>
     <div class="video-container" id="video-container"></div>
     <div class="community" id="community">
-      <ul class="community__list" id="community__list"></ul>
+      <ul class="community__list" id="community__list">
+        <li class="community__list--item">
+          <a href="" class="communityTitle" rel="">매체연기</a>
+          <ul id="content"></ul>
+        </li>
+        <li class="community__list--item">
+          <a href="" class="communityTitle" rel="">연극연기</a>
+          <ul id="content"></ul>
+        </li>
+        <li class="community__list--item">
+          <a href="" class="communityTitle" rel="">뮤지컬</a>
+          <ul id="content"></ul>
+        </li>
+        <li class="community__list--item">
+          <a href="" class="communityTitle" rel="">무용</a>
+          <ul id="content"></ul>
+        </li>
+      </ul>
     </div>
   </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <!-- 쿼리파람 -->
   <!-- queryParameter -->
- <script>
+  <script>
     $(document).ready(function () {
       $.get("http://localhost:3000/categoryBar", function (data) {
         for (var i = 0; i < data.length; i++) {
@@ -75,7 +92,7 @@
           }
         }
       });
-    
+
 
       $.get("http://localhost:3000/videos", function (data) {
         $("#video-container").append(
@@ -101,42 +118,11 @@
           );
         } // i+1 뺴기
       });
+    })
 
-      $.get("http://localhost:3000/postTitle", function (data) {
-        for (var i = 0; i < data.length; i++) {
-          $("#community__list").append(
-            '<div class="community__list--item"' +
-            ' id="community__list--item"' +
-            i +
-            '">' +
-            "<a href=" +
-            " " +
-            ' id="communityTitle' +
-            i +
-            '"rel="' +
-            data[i].name +
-            '-coummunity">' +
-            data[i].name_kr +
-            "</a>" +
-            '<ul id="content' +
-            i +
-            '">' +
-            "</ul></div>"
-          );
-          for (var i = 0; i < data.length; i++) {
-            $("#content" + i).append(
-              " <li><a href='http://localhost:3000/media/freePost/" +
-              data[i].board_id +
-              "'>" +
-              data[i].title +
-              "</a></li>"
-            );
-          }
+    $.get("http://localhost:3000/post",function(data){
 
-        }
-      });
-
-    });
+    })
   </script>
 </body>
 //
