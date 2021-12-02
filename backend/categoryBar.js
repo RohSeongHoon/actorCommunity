@@ -24,7 +24,6 @@ categoryRouter.get("/", async (req, res) => {
   const query = "select * from categories";
   try {
     await model.query(query).then(async function (response) {
-      console.log("response.length : " + response[0].length);
       for (let i = 0; i < response[0].length; i++) {
         let getSubCategories = await model.query(
           "select * from sub_categories where parent_category_id =" +
