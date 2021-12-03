@@ -122,18 +122,17 @@
             "</ul></div>"
           );
           
-          console.log(category.content);
+          
           for (let j = 0; j < category.contents.length; j++) {
             let content = category.contents[j];
+            console.log(content.post_id);
             $("#content" + i).append(
-              " <li><a href='http://localhost:3000/"+category.name+"/freePost?post_id=" + 
-                content.id+
-              "'>" +
+              " <li><a href='./nomal-post-main.html?post_id="+content.post_id+"'>" +
               content.title +
               "</a></li>"
             );
-          }
-
+          }//착각했음 로컬에서 하는거라 내컴퓨터에있는 파일을 링크로 전달하면 됨 
+          
         }
       });
     });
