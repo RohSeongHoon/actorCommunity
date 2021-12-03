@@ -23,16 +23,15 @@ const categoryRouter = express.Router();
 categoryRouter.get("/", async (req, res) => {
   const query = "select * from categories";
   try {
-    await model.query(query).then(async function (response) {
-      for (let i = 0; i < response[0].length; i++) {
-        let getSubCategories = await model.query(
-          "select * from sub_categories where parent_category_id =" +
-            response[0][i].id
-        );
-        response[0][i].subCategory = getSubCategories[0];
-      }
-      return res.json(response[0]);
-    });
+    let [categories] = await model.query(query);
+    for (let i = 0; i < categories.length; i++) {
+      let getSubCategories = await model.query(
+        "select * from sub_categories where parent_category_id =" +
+          categories[i].id
+      );
+      categories[i].subCategory = getSubCategories[0];
+    }
+    return res.json(categories);
   } catch (err) {
     console.log(err);
     return err;
