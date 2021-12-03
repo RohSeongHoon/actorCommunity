@@ -103,16 +103,14 @@
 
       $.get("http://localhost:3000/post", function (data) {
         for (var i = 0; i < data.length; i++) {
-          let category = data[i]
+          let category = data[i]          
           $("#community__list").append(
             '<div class="community__list--item"' +
             ' id="community__list--item"' +
-            i +
             '">' +
             "<a href=" +
-            " " +
-            ' id="communityTitle' +
-            i +
+            ' http://localhost:3000/category?id='+category.id +
+            ' id="communityTitle' +  
             '"rel="' +
             category.name_kr +
             '-coummunity">' +
@@ -123,11 +121,13 @@
             '">' +
             "</ul></div>"
           );
+          
+          console.log(category.content);
           for (let j = 0; j < category.contents.length; j++) {
             let content = category.contents[j];
             $("#content" + i).append(
-              " <li><a href='http://localhost:3000/media/freePost/" +
-              content.post_id +
+              " <li><a href='http://localhost:3000/"+category.name+"/freePost?post_id=" + 
+                content.id+
               "'>" +
               content.title +
               "</a></li>"

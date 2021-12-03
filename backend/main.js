@@ -14,19 +14,8 @@ mainRouter.get("/videos", async (req, res) => {
   }
 });
 
-mainRouter.get("/postTitle", async (req, res) => {
-  let query = "select id,name_kr,name from categories;";
-  try {
-    let [postTitle] = await model.query(query);
-    res.json(postTitle);
-  } catch (err) {
-    console.log(err);
-    return err;
-  }
-});
-
 mainRouter.get("/post", async (req, res) => {
-  let query = "select name_kr,id from categories";
+  let query = "select * from categories";
   try {
     let [categories] = await model.query(query);
     for (let i = 0; i < categories.length; i++) {
