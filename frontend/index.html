@@ -103,14 +103,14 @@
 
       $.get("http://localhost:3000/post", function (data) {
         for (var i = 0; i < data.length; i++) {
-          let category = data[i]          
+          let category = data[i]
           $("#community__list").append(
             '<div class="community__list--item"' +
             ' id="community__list--item"' +
             '">' +
             "<a href=" +
-            ' http://localhost:3000/category?id='+category.id +
-            ' id="communityTitle' +  
+            ' http://localhost:3000/category?id=' + category.id +
+            ' id="communityTitle' +
             '"rel="' +
             category.name_kr +
             '-coummunity">' +
@@ -121,18 +121,18 @@
             '">' +
             "</ul></div>"
           );
-          
-          
+
+
           for (let j = 0; j < category.contents.length; j++) {
             let content = category.contents[j];
-            console.log(content.post_id);
+            console.log(content.sub_category_id);
             $("#content" + i).append(
-              " <li><a href='./nomal-post-main.html?post_id="+content.post_id+"'>" +
+              " <li><a href='./nomal-post-main.html?sub_category_id="+ content.sub_category_id+"'>" +
               content.title +
               "</a></li>"
             );
           }//착각했음 로컬에서 하는거라 내컴퓨터에있는 파일을 링크로 전달하면 됨 
-          
+
         }
       });
     });
