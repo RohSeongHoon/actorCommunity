@@ -43,9 +43,10 @@
       <ul class="community__list" id="community__list"></ul>
     </div>
   </main>
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+ 
   <!-- 쿼리파람 -->
   <!-- queryParameter -->
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     $(document).ready(function () {
       $.get("http://localhost:3000/categoryBar", function (data) {
@@ -75,7 +76,6 @@
           }
         }
       });
-
       $.get("http://localhost:3000/videos", function (data) {
         $("#video-container").append(
           ' <ul id="video-lists" class="video-lists" ></ul>'
@@ -100,7 +100,6 @@
           );
         } // i+1 뺴기
       });
-
       $.get("http://localhost:3000/post", function (data) {
         for (var i = 0; i < data.length; i++) {
           let category = data[i]
@@ -127,7 +126,7 @@
             let content = category.contents[j];
             console.log(content.sub_category_id);
             $("#content" + i).append(
-              " <li><a href='./nomal-post-main.html?sub_category_id="+ content.sub_category_id+"'>" +
+              " <li><a href='./nomal-post-main.html?sub_category_id="+ content.sub_category_id+"&post_id="+content.post_id+ "'>" +
               content.title +
               "</a></li>"
             );
