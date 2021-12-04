@@ -1,9 +1,9 @@
 const express = require("express");
-const model = require("./main");
+const model = require("./model");
 
 const postRouter = express.Router();
 
-postRouter.get("/post", async function (res, req) {
+postRouter.get("/", async function (req, res) {
   let query = "select * from categories";
   try {
     let [categories] = await model.query(query);

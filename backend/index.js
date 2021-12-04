@@ -5,12 +5,15 @@ const port = 3000;
 const model = require("./model");
 const categoryRoute = require("./categoryBar");
 const mainRoute = require("./main");
+const postRoute = require("./post");
 
 app.use(cors());
 
 app.use("/", mainRoute);
 
 app.use("/categoryBar", categoryRoute);
+
+app.use("/post", postRoute);
 
 app.listen(port, () => {
   console.log(`example app listening at http://localhost:${port}`);
