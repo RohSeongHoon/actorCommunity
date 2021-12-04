@@ -26,8 +26,8 @@
         <a href="../login-interface.html" rel="login"><span>로그인</span></a>
       </div>
     </nav>
-    <nav class="category-bar">
-     
+    <nav id="category-bar" class="category-bar">
+      <ul id="category-bar__container" class="category-bar__container"></ul>
     </nav>
     <main>
       <h2 class="category-head">카테고리 이름</h2>
@@ -99,44 +99,35 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
       $(document).ready(function(){
-        $.get("http://localhost:3000/categories", function (data) {
-          $(".category-bar").append(
-            '<ul id="category-bar__container" class="category-bar__container"></ul>'
+        $.get("http://localhost:3000/categoryBar", function (data) {
+          console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          let category = data[i]
+          $("#category-bar__container").append(
+            '<li class="category-bar__list">' +
+            "<a" +
+            ' class="category-bar__list--title"' +
+            'href="../test/community/actor.html"' +
+            'rel="actor">' +
+            category.name_kr +
+            "</a>" +
+            '<ul id="category-bar__content' +
+            i +
+            '" class="category-bar__content"></ul>'
           );
-          for (var i = 0; i < data.length; i++) {
-            let category = data[i];
-            $("#category-bar__container").append(
-              '<li class="category-bar__list">' +
-                "<a" +
-                ' class="category-bar__list--title"' +
-                'href="../test/community/actor.html"' +
-                'rel="actor">' +
-                category.categoryKr +
-                "</a>" +
-                '<ul id="categort-bar__content' +
-                i +
-                '" class="categort-bar__content"></ul>'
-            );
-
-            for (let j = 0; j < category.contents.length; j++) {
-              let contents = category.contents[j];
-              console.log(contents.postLink);
-              console.log(contents.postNameKr);
-
-              $("#categort-bar__content" + i).append(
-                '<li class="category-bar__content--item">' +
-                  "<a href=" +
-                  contents.postLink +
-                  ">" +
-                  contents.postNameKr +
-                  "</a>" +
-                  "</li>"
-              );
-            }
+          for (let j = 0; j < category.subCategory.length; j++) {
+            let subCategory = category.subCategory[j];
+            $('#category-bar__content' + i).append(
+              '<li class="category-bar__content--item">' +
+              "<a href=''>" +
+              subCategory.name_kr +
+              "</a>" +
+              "</li>"
+            )
           }
-        });
-        
-      })
+        }
+      });
+      });
     </script>
   </body>
 </html>
