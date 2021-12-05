@@ -98,12 +98,6 @@
     </main>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
-      function getParam (key){
-        return new URLSearchParams(location.search).get(key);
-      }
-      console.log(getParam('post_id'));
-    </script>
-    <script>
       $(document).ready(function(){
         $.get("http://localhost:3000/categoryBar", function (data) {
         for (var i = 0; i < data.length; i++) {
@@ -133,6 +127,11 @@
         }
       });
       });
+      
+      function getParam (key){
+        return new URLSearchParams(location.search).get(key);
+      }
+      $.get('http://localhost:3000/post?post_id='+getParam('post_id'))
     </script>
     
   </body>
