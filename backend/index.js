@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const port = 3000;
 const model = require("./model");
-const categoryRoute = require("./categoryBar");
+const categoryRoute = require("./categories");
 const mainRoute = require("./main");
 const postRoute = require("./post");
 
@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use("/", mainRoute);
 
-app.use("/categoryBar", categoryRoute);
+app.use("/categories", categoryRoute);
 
 app.use("/post", postRoute);
 

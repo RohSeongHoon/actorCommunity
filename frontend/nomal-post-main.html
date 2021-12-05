@@ -114,9 +114,9 @@
 
     function getParam(key) {
       return new URLSearchParams(location.search).get(key);
-    }
-    $.get('http://localhost:3000/post?category_id=' + getParam('category_id') + ' &post_id=' + getParam('post_id'), function (data) {
-      console.log(data);
+    } 
+    $.get('http://localhost:3000/post?post_id=' + getParam('post_id'), function (data) {
+      console.log('data: ',data);
     })
   </script>
 

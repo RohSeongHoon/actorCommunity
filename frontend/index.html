@@ -49,7 +49,7 @@
    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     $(document).ready(function () {
-      $.get("http://localhost:3000/categoryBar", function (data) {
+      $.get("http://localhost:3000/categories", function (data) {
         for (var i = 0; i < data.length; i++) {
           let category = data[i]
           $("#category-bar__container").append(
@@ -64,6 +64,25 @@
             i +
             '" class="category-bar__content"></ul>'
           );
+          $("#community__list").append(
+            '<div class="community__list--item"' +
+            ' id="community__list--item"' +
+            '">' +
+            "<a href=" +
+            ' http://localhost:3000/category?id=' + category.id +
+            ' id="communityTitle' +
+            '"rel="' +
+            category.name_kr +
+            '-coummunity">' +
+            category.name_kr +
+            "</a>" +
+            '<ul id="content' +
+            i +
+            '">' +
+            "</ul></div>"
+          );
+
+          
           for (let j = 0; j < category.subCategory.length; j++) {
             let subCategory = category.subCategory[j];
             $('#category-bar__content' + i).append(
@@ -103,24 +122,7 @@
       $.get("http://localhost:3000/post", function (data) {
         for (var i = 0; i < data.length; i++) {
           let category = data[i]
-          $("#community__list").append(
-            '<div class="community__list--item"' +
-            ' id="community__list--item"' +
-            '">' +
-            "<a href=" +
-            ' http://localhost:3000/category?id=' + category.id +
-            ' id="communityTitle' +
-            '"rel="' +
-            category.name_kr +
-            '-coummunity">' +
-            category.name_kr +
-            "</a>" +
-            '<ul id="content' +
-            i +
-            '">' +
-            "</ul></div>"
-          );
-
+          
 
           for (let j = 0; j < category.contents.length; j++) {
             let content = category.contents[j];

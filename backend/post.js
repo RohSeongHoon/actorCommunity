@@ -4,8 +4,8 @@ const model = require("./model");
 const postRouter = express.Router();
 
 postRouter.get("/", async function (req, res) {
-  let params = req.query.params;
-  console.log(params);
+  let getQueryParam = req.query.params;
+  console.log("getqueryParam : ", getQueryParam);
   let query = "select * from categories";
   try {
     let [categories] = await model.query(query);
@@ -28,4 +28,5 @@ postRouter.get("/", async function (req, res) {
     return err;
   }
 });
+
 module.exports = postRouter;
