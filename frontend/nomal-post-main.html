@@ -1,105 +1,89 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <link href="./css/styles.css" rel="stylesheet" />
-    <meta
-      name="discriptison"
-      content="연기,뮤지컬,보컬,악기 예술인들의 커뮤니티 코멘트를 받을 수 있습니다 "
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="keywords" content="연기,뮤지컬,보컬,악기,기타" />
-    <title>test</title>
-    <meta name="description" content="예체능인들의 커뮤니티입니다" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  </head>
-  <body>
-    <nav id="navbar-container">
-      <div id="logo">
-        <h1><a class="logo__a" href="../index.html">배우 커뮤니티</a></h1>
+
+<head>
+  <meta charset="utf-8" />
+  <link href="./css/styles.css" rel="stylesheet" />
+  <meta name="discriptison" content="연기,뮤지컬,보컬,악기 예술인들의 커뮤니티 코멘트를 받을 수 있습니다 " />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="keywords" content="연기,뮤지컬,보컬,악기,기타" />
+  <title>test</title>
+  <meta name="description" content="예체능인들의 커뮤니티입니다" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+</head>
+
+<body>
+  <nav id="navbar-container">
+    <div id="logo">
+      <h1><a class="logo__a" href="../index.html">배우 커뮤니티</a></h1>
+    </div>
+    <form id="search">
+      <input type="text" placeholder="검색어를 입력하세요" />
+      <button type="submit"><span>검색</span></button>
+    </form>
+    <div id="login-button">
+      <a href="../login-interface.html" rel="login"><span>로그인</span></a>
+    </div>
+  </nav>
+  <nav id="category-bar" class="category-bar">
+    <ul id="category-bar__container" class="category-bar__container"></ul>
+  </nav>
+  <main>
+    <h2 class="category-head">카테고리 이름</h2>
+    <h3 class="post-title">제목</h3>
+    <div id="nomal-post">
+      <div class="nomal-writer-container">
+        <span class="nomal-post-writer">작성자</span>
+        <span class="time-to-post">작성 날짜</span>
       </div>
-      <form id="search">
-        <input type="text" placeholder="검색어를 입력하세요" />
-        <button type="submit"><span>검색</span></button>
-      </form>
-      <div id="login-button">
-        <a href="../login-interface.html" rel="login"><span>로그인</span></a>
+      <div class="nomal-post-contents">
+        <span id="post-content-span">
+          조잘조잘조잘 쌸라쌸라 뭐어어어엉어러럶넝람넝리조잘조잘조잘쌸라쌸라
+        </span>
+        <img class="post-content-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
+        <img class="post-content-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
       </div>
-    </nav>
-    <nav id="category-bar" class="category-bar">
-      <ul id="category-bar__container" class="category-bar__container"></ul>
-    </nav>
-    <main>
-      <h2 class="category-head">카테고리 이름</h2>
-      <h3 class="post-header">제목</h3>
-      <div id="nomal-post">          
-        <div class="nomal-writer-container">          
-          <span class="nomal-post-writer">작성자</span> 
-          <span class="nomal-post-instarid">인스타아이디</span>
-          <span class="time-to-post">작성 날짜</span>
-        </div>
-        <div class="nomal-post-contents">
-          <span>
-            조잘조잘조잘 쌸라쌸라 뭐어어어엉어러럶넝람넝리조잘조잘조잘쌸라쌸라
-          </span>
-          <img
-            src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31"
-            width="100px"
-            height="100px"
-          />
-          <img
-            src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31"
-            width="100px"
-            height="100px"
-          />
-        </div>
-      </div>
-      <div id="post-comment-container">
-      
+    </div>
+    <div class="comment-write-container">
+      <textarea class="comment-textarea"></textarea>
+      <button class="comment-button" type="submit"><span>댓글작성</span></button>
+    </div>
+    <div id="post-comment-container">
+
       <div class="post-comment">
-        <img
-            class="profile-img"
-          src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31"
-           
-          /><div class="comment-writer-container">
+        <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
+        <div class="comment-writer-container">
           <span class="comment-writer">작성자</span>
           <span class="time-to-comment">2002-01-02 00:12:13</span>
-          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
+          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
+            내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
         </div>
       </div>
       <div class="post-comment">
-        <img
-            class="profile-img"
-          src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31"
-           
-          /><div class="comment-writer-container">
+        <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
+        <div class="comment-writer-container">
           <span class="comment-writer">작성자</span>
           <span class="time-to-comment">2002-01-02 00:12:13</span>
-          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
+          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
+            내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
         </div>
       </div>
       <div class="post-comment">
-        <img
-            class="profile-img"
-          src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31"
-           
-          /><div class="comment-writer-container">
+        <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
+        <div class="comment-writer-container">
           <span class="comment-writer">작성자</span>
           <span class="time-to-comment">2002-01-02 00:12:13</span>
-          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
+          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
+            내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
         </div>
       </div>
     </div>
-     <div class="comment-write-container">
-        <textarea class="comment-textarea"></textarea>
-        <button class="comment-button" type="submit"><span>댓글작성</span></button>
-     </div>
     </div>
-    </main>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        $.get("http://localhost:3000/categoryBar", function (data) {
+  </main>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $.get("http://localhost:3000/categoryBar", function (data) {
         for (var i = 0; i < data.length; i++) {
           let category = data[i]
           $("#category-bar__container").append(
@@ -126,13 +110,16 @@
           }
         }
       });
-      });
-      
-      function getParam (key){
-        return new URLSearchParams(location.search).get(key);
-      }
-      $.get('http://localhost:3000/post?post_id='+getParam('post_id'))
-    </script>
-    
-  </body>
+    });
+
+    function getParam(key) {
+      return new URLSearchParams(location.search).get(key);
+    }
+    $.get('http://localhost:3000/post?category_id=' + getParam('category_id') + ' &post_id=' + getParam('post_id'), function (data) {
+      console.log(data);
+    })
+  </script>
+
+</body>
+
 </html>

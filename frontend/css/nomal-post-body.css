@@ -1,4 +1,4 @@
-.post-header {
+.post-title {
   color: rgb(56, 53, 53);
   font-size: 25px;
   font-weight: 400;
@@ -28,10 +28,10 @@
   padding: 15px;
   border-bottom: 1px solid rgb(212, 208, 208);
 }
-.nomal-post-contents span {
+#post-content-span {
   padding: 7px;
 }
-.nomal-post-contents img {
+.post-content-img {
   width: 500px;
   height: auto;
   padding: 7px;
