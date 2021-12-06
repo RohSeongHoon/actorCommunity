@@ -51,7 +51,7 @@
     $(document).ready(function () {
       $.get("http://localhost:3000/categories", function (data) {
         for (var i = 0; i < data.length; i++) {
-          let category = data[i]
+          let category =  data[i]
           $("#category-bar__container").append(
             '<li class="category-bar__list">' +
             "<a" +
@@ -81,8 +81,6 @@
             '">' +
             "</ul></div>"
           );
-
-          
           for (let j = 0; j < category.subCategory.length; j++) {
             let subCategory = category.subCategory[j];
             $('#category-bar__content' + i).append(
@@ -119,14 +117,12 @@
           );
         } // i+1 뺴기
       });
-      $.get("http://localhost:3000/post", function (data) {
-        for (var i = 0; i < data.length; i++) {
-          let category = data[i]
-          
-
-          for (let j = 0; j < category.contents.length; j++) {
-            let content = category.contents[j];
-            console.log(content.sub_category_id);
+      let freePostId = [2,5,8,10];
+      for(let i=0;i<freePostId.length; i++){
+      $.get("http://localhost:3000/post?subCategoryId=" + freePostId[i], function (data) {
+          for (let j = 0; j < data.length; j++) {
+            let content = data[j];
+            console.log('index.html:127 > content', content.title);
             $("#content" + i).append(
               " <li><a href='./nomal-post-main.html?sub_category_id="+ content.sub_category_id+"&post_id="+content.post_id+ "'>" +
               content.title +
@@ -134,8 +130,9 @@
             );
           }//착각했음 로컬에서 하는거라 내컴퓨터에있는 파일을 링크로 전달하면 됨 
 
-        }
+        
       });
+    }
     });
   </script>
 </body>
