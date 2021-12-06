@@ -43,15 +43,15 @@
       <ul class="community__list" id="community__list"></ul>
     </div>
   </main>
- 
+
   <!-- 쿼리파람 -->
   <!-- queryParameter -->
-   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     $(document).ready(function () {
       $.get("http://localhost:3000/categories", function (data) {
-        for (var i = 0; i < data.length; i++) {
-          let category =  data[i]
+        for (let i = 0; i < data.length; i++) {
+          let category = data[i]
           $("#category-bar__container").append(
             '<li class="category-bar__list">' +
             "<a" +
@@ -81,6 +81,7 @@
             '">' +
             "</ul></div>"
           );
+          console.log('categories = ',category.subCategory);
           for (let j = 0; j < category.subCategory.length; j++) {
             let subCategory = category.subCategory[j];
             $('#category-bar__content' + i).append(
@@ -90,9 +91,24 @@
               "</a>" +
               "</li>"
             )
+            if (subCategory.name_kr == '자유게시판') {
+              $.get("http://localhost:3000/post/mainFreePost?subCategoryId=" + subCategory.id, function (data) {
+                for (let k = 0; k < data.length; k++) {
+                  let content = data[k];
+                  $("#content" + i).append(
+                    " <li><a href='./nomal-post-main.html?sub_category_id=" + content.sub_category_id + "&post_id=" + content.post_id + "'>" +
+                    content.title +
+                    "</a></li>"
+                  );
+                }//착각했음 로컬에서 하는거라 내컴퓨터에있는 파일을 링크로 전달하면 됨 
+              });
+            }
           }
         }
       });
+      //카테고리id와 서브카테고리아이디가 필요한데 이런식으로 get카테고리에서 같이 받아와도 되는지 
+      //쿼리문으로 가지고와야하는데 서브쿼리는 어떤식으로 전달해야하는지
+
       $.get("http://localhost:3000/videos", function (data) {
         $("#video-container").append(
           ' <ul id="video-lists" class="video-lists" ></ul>'
@@ -115,24 +131,8 @@
             video.title +
             "</a></li>"
           );
-        } // i+1 뺴기
+        } // 없어도 되는 api 자유게시판 문제해결되면 그걸바탕으로 재설계
       });
-      let freePostId = [2,5,8,10];
-      for(let i=0;i<freePostId.length; i++){
-      $.get("http://localhost:3000/post?subCategoryId=" + freePostId[i], function (data) {
-          for (let j = 0; j < data.length; j++) {
-            let content = data[j];
-            console.log('index.html:127 > content', content.title);
-            $("#content" + i).append(
-              " <li><a href='./nomal-post-main.html?sub_category_id="+ content.sub_category_id+"&post_id="+content.post_id+ "'>" +
-              content.title +
-              "</a></li>"
-            );
-          }//착각했음 로컬에서 하는거라 내컴퓨터에있는 파일을 링크로 전달하면 됨 
-
-        
-      });
-    }
     });
   </script>
 </body>
@@ -149,3 +149,11 @@
 //         div에 아이디값을 주고 내부에 반복되는 데이터 지우기   -->
 
 </html>
+<!-- 메뉴바에 필요한 카테고리들을 get요청으로 categories에 보낸다  
+      메뉴바에있는 아이디로 하위 카테고리들을 categories안에 쿼리문으로 가지고 온다 
+      카테고리를 가지고오면서 메인화면에 카테고리의 제목을 넣는다 
+      카테고리와 하위 카테고리의 id값으로 자유게시판에 등록되어있는 게시물을 가지고온다 
+      문제를 정의하는것부터 시작 
+       (카테고리를 가지고오면서 함수내부에 get요청을 post에 보낸다면 종속이 되는데 이건 괜찮은건지)
+       (video같은경우에는 video 링크를 따로 가지고와야 하는건지 )
+-->
