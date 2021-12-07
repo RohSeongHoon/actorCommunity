@@ -43,9 +43,6 @@
       <ul class="community__list" id="community__list"></ul>
     </div>
   </main>
-
-  <!-- 쿼리파람 -->
-  <!-- queryParameter -->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     $(document).ready(function () {
@@ -76,10 +73,7 @@
           }
         }
       });
-      //카테고리id와 서브카테고리아이디가 필요한데 이런식으로 get카테고리에서 같이 받아와도 되는지 
-      //쿼리문으로 가지고와야하는데 서브쿼리는 어떤식으로 전달해야하는지
       $.get("http://localhost:3000/post/freePostPreview", function (data) {
-        console.log(data);
         for (let i = 0; i < data.length; i++) {
           let category = data[i]
           $("#community__list").append(
@@ -87,7 +81,7 @@
             ' id="community__list--item"' +
             '">' +
             "<a href=" +
-            ' http://localhost:3000/category?id=' + category.id +
+            './noaml-post-main?id=' + category.id +
             ' id="communityTitle' +
             '"rel="' +
             category.name_kr +
@@ -102,7 +96,7 @@
           for (let j = 0; j < category.contents.length; j++) {
             let content = category.contents[j]
             $("#content" + i).append(
-              " <li><a href='./nomal-post-main.html?sub_category_id=" + content.sub_category_id + "&post_id=" + content.post_id + "'>" +
+              " <li><a href='./nomal-post-main.html?postId=" + content.post_id + "'>" +
               content.title +
               "</a></li>"
             );
@@ -136,20 +130,23 @@
     });
   </script>
 </body>
-//
-<!-- 
-//         메인 화면에 커뮤니티 카테고리 내부에 데이터 채우기
-//         ul 내부에 데이터의 값만큼 li를 생성
-//         li를 생성하면서 id값고 데이터 넣기
-      
-      
-      
-//       카테고리 이름도 json데이터로 받아와야함
-//         카테고리를 한글로 쓸거면 키마지막에 kr붙이기
-//         div에 아이디값을 주고 내부에 반복되는 데이터 지우기   -->
 
 </html>
-<!-- 메뉴바에 필요한 카테고리들을 get요청으로 categories에 보낸다  
+<!-- 
+  쿼리파람 
+   queryParameter 
+     쿼리문으로 가지고와야하는데 서브쿼리는 어떤식으로 전달해야하는지
+         메인 화면에 커뮤니티 카테고리 내부에 데이터 채우기
+         ul 내부에 데이터의 값만큼 li를 생성
+         li를 생성하면서 id값고 데이터 넣기
+      
+      
+      
+       카테고리 이름도 json데이터로 받아와야함
+         카테고리를 한글로 쓸거면 키마지막에 kr붙이기
+         div에 아이디값을 주고 내부에 반복되는 데이터 지우기  
+  
+  메뉴바에 필요한 카테고리들을 get요청으로 categories에 보낸다  
       메뉴바에있는 아이디로 하위 카테고리들을 categories안에 쿼리문으로 가지고 온다 
       카테고리를 가지고오면서 메인화면에 카테고리의 제목을 넣는다 
       카테고리와 하위 카테고리의 id값으로 자유게시판에 등록되어있는 게시물을 가지고온다 

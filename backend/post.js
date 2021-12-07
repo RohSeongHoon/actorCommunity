@@ -3,23 +3,9 @@ const model = require("./model");
 
 const postRouter = express.Router();
 
-postRouter.get("/postPreview", async function (req, res) {
-  let subCategoryId = req.query.subCategoryId;
-  try {
-    let [postContents] = await model.query(
-      "select * from posts where sub_category_id =" + subCategoryId
-    );
-    return res.json(postContents);
-  } catch (err) {
-    console.log(err);
-    return err;
-  }
-});
-
 postRouter.get("/freePostPreview", async (req, res) => {
-  let query = "select name_kr,id from categories";
+  let query = "select name,name_kr,id from categories";
   try {
-    let [freePost] = await model.query(query);
     let [categories] = await model.query(query);
     for (let i = 0; i < categories.length; i++) {
       let categoryId = categories[i].id;
@@ -38,11 +24,22 @@ postRouter.get("/freePostPreview", async (req, res) => {
     return err;
   }
 });
+postRouter.get("/", async (req, res) => {
+  let postId = req.query.postId;
+  console.log("post.js:29", postId);
+  let query = "select * from posts where post_id = " + postId;
+  try {
+    console.log("post.js:32 query = ", postId);
+    let [post] = await model.query(query);
+    return res.json(post);
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+});
 //조건문을 밖에서 쿼리파람으로 요청
 // 문법에 맞게 사용 물음표와 [] 사용해서 변수로 삽입
 //포스트는 포스트.js안에만 있어야함
 //화면에 맞춰서 api생성하면 효율이 많이 떨어짐
 //객체 지향인걸 잊으면 안됨
-
-postRouter.get("/post"), async function (req, res) {};
 module.exports = postRouter;
