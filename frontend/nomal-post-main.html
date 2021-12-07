@@ -31,54 +31,12 @@
   <main>
     <h2 class="category-head">카테고리 이름</h2>
     <h3 class="post-title">제목</h3>
-    <div id="nomal-post">
-      <div class="nomal-writer-container">
-        <span class="nomal-post-writer">작성자</span>
-        <span class="time-to-post">작성 날짜</span>
-      </div>
-      <div class="nomal-post-contents">
-        <span id="post-content-span">
-          조잘조잘조잘 쌸라쌸라 뭐어어어엉어러럶넝람넝리조잘조잘조잘쌸라쌸라
-        </span>
-        <img class="post-content-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
-        <img class="post-content-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
-      </div>
-    </div>
+    <div id="nomal-post"></div>
     <div class="comment-write-container">
       <textarea class="comment-textarea"></textarea>
       <button class="comment-button" type="submit"><span>댓글작성</span></button>
     </div>
-    <div id="post-comment-container">
-
-      <div class="post-comment">
-        <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
-        <div class="comment-writer-container">
-          <span class="comment-writer">작성자</span>
-          <span class="time-to-comment">2002-01-02 00:12:13</span>
-          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
-            내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
-        </div>
-      </div>
-      <div class="post-comment">
-        <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
-        <div class="comment-writer-container">
-          <span class="comment-writer">작성자</span>
-          <span class="time-to-comment">2002-01-02 00:12:13</span>
-          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
-            내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
-        </div>
-      </div>
-      <div class="post-comment">
-        <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
-        <div class="comment-writer-container">
-          <span class="comment-writer">작성자</span>
-          <span class="time-to-comment">2002-01-02 00:12:13</span>
-          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
-            내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
-        </div>
-      </div>
-    </div>
-    </div>
+    <div id="post-comment-container"></div>
   </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
@@ -110,17 +68,38 @@
           }
         }
       });
-    
-
-    function getParam(key) {
-      return new URLSearchParams(location.search).get(key);
-    } 
-  
-    console.log('nomal-post:119',getParam('postId'));
-    $.get('http://localhost:3000/post?postId=' + getParam('postId'), function (data) {
-      
-    })
-  });
+      function getParam(key) {
+        return new URLSearchParams(location.search).get(key);
+      }
+      $.get('http://localhost:3000/post?postId=' + getParam('postId'), function (data) {
+        console.log('data ==', data.comments);
+        $('#nomal-post').append(
+          '<div class="nomal-writer-container">' +
+          '<span class="nomal-post-writer">'+data.writer+'</span>' +
+          '<span class="time-to-post">'+data.write_date+'</span>' +
+          '</div>' +
+          '<div class="nomal-post-contents">' +
+          '<span id="post-content-span">' +
+          data.content +
+          '</span>' +
+          '<img class="post-content-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />' +
+          '<img class="post-content-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />' +
+          '</div>'
+        )
+        for(let i =0; i< data.comments.length;i++){
+          let comment = data.comments[i];
+        $('#post-comment-container').append(
+          '<div class="post-comment">'+
+          '<img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />' +
+          '<div class="comment-writer-container">' +
+          '<span class="comment-writer">'+comment.writer+'</span>' +
+          '<span class="time-to-comment">'+comment.write_date+'</span>' +
+          '<span class="comment-content">'+comment.content+'</span>'+
+          '</div>'
+        )
+      }
+      })
+    });
   </script>
 
 </body>
