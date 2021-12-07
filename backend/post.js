@@ -26,12 +26,15 @@ postRouter.get("/freePostPreview", async (req, res) => {
 });
 postRouter.get("/", async (req, res) => {
   let postId = req.query.postId;
-  console.log("post.js:29", postId);
   let query = "select * from posts where post_id = " + postId;
   try {
     console.log("post.js:32 query = ", postId);
     let [post] = await model.query(query);
-    return res.json(post);
+    let [comment] = await model.query(
+      "select * from comments where parent_post_id=" + post[0].post_id
+    );
+    post[0].comments = comment;
+    return res.json(post[0]);
   } catch (err) {
     console.log(err);
     return err;
