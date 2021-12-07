@@ -20,8 +20,6 @@ categoryRouter.get("/", async (req, res) => {
     return err;
   }
 });
-categoryRouter.get("/list/freePost", async (req, res) => {});
-categoryRouter.get("/list/videos");
 
 module.exports = categoryRouter;
 

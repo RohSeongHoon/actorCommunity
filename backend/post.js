@@ -3,13 +3,36 @@ const model = require("./model");
 
 const postRouter = express.Router();
 
-postRouter.get("/mainFreePost", async function (req, res) {
+postRouter.get("/postPreview", async function (req, res) {
   let subCategoryId = req.query.subCategoryId;
   try {
     let [postContents] = await model.query(
       "select * from posts where sub_category_id =" + subCategoryId
     );
     return res.json(postContents);
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+});
+
+postRouter.get("/freePostPreview", async (req, res) => {
+  let query = "select name_kr,id from categories";
+  try {
+    let [freePost] = await model.query(query);
+    let [categories] = await model.query(query);
+    for (let i = 0; i < categories.length; i++) {
+      let categoryId = categories[i].id;
+      let [postContents] = await model.query(
+        "select * from posts where category_id =" +
+          categoryId +
+          " and sub_category_id = (select id from sub_categories where name_kr = '자유게시판'and parent_category_id = " +
+          categoryId +
+          " )"
+      );
+      categories[i].contents = postContents;
+    }
+    return res.json(categories);
   } catch (err) {
     console.log(err);
     return err;

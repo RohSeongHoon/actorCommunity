@@ -64,6 +64,27 @@
             i +
             '" class="category-bar__content"></ul>'
           );
+          for (let j = 0; j < category.subCategory.length; j++) {
+            let subCategory = category.subCategory[j];
+            $('#category-bar__content' + i).append(
+              '<li class="category-bar__content--item">' +
+              "<a href=''>" +
+              subCategory.name_kr +
+              "</a>" +
+              "</li>"
+            )
+
+
+
+          }
+        }
+      });
+      //카테고리id와 서브카테고리아이디가 필요한데 이런식으로 get카테고리에서 같이 받아와도 되는지 
+      //쿼리문으로 가지고와야하는데 서브쿼리는 어떤식으로 전달해야하는지
+      $.get("http://localhost:3000/post/freePostPreview", function (data) {
+        console.log(data);
+        for (let i = 0; i < data.length; i++) {
+          let category = data[i]
           $("#community__list").append(
             '<div class="community__list--item"' +
             ' id="community__list--item"' +
@@ -81,34 +102,16 @@
             '">' +
             "</ul></div>"
           );
-          console.log('categories = ',category.subCategory);
-          for (let j = 0; j < category.subCategory.length; j++) {
-            let subCategory = category.subCategory[j];
-            $('#category-bar__content' + i).append(
-              '<li class="category-bar__content--item">' +
-              "<a href=''>" +
-              subCategory.name_kr +
-              "</a>" +
-              "</li>"
-            )
-            if (subCategory.name_kr == '자유게시판') {
-              $.get("http://localhost:3000/post/mainFreePost?subCategoryId=" + subCategory.id, function (data) {
-                for (let k = 0; k < data.length; k++) {
-                  let content = data[k];
-                  $("#content" + i).append(
-                    " <li><a href='./nomal-post-main.html?sub_category_id=" + content.sub_category_id + "&post_id=" + content.post_id + "'>" +
-                    content.title +
-                    "</a></li>"
-                  );
-                }//착각했음 로컬에서 하는거라 내컴퓨터에있는 파일을 링크로 전달하면 됨 
-              });
-            }
-          }
+          for (let j = 0; j < category.contents.length; j++) {
+            let content = category.contents[j]
+            $("#content" + i).append(
+              " <li><a href='./nomal-post-main.html?sub_category_id=" + content.sub_category_id + "&post_id=" + content.post_id + "'>" +
+              content.title +
+              "</a></li>"
+            );
+          }//착각했음 로컬에서 하는거라 내컴퓨터에있는 파일을 링크로 전달하면 됨 
         }
-      });
-      //카테고리id와 서브카테고리아이디가 필요한데 이런식으로 get카테고리에서 같이 받아와도 되는지 
-      //쿼리문으로 가지고와야하는데 서브쿼리는 어떤식으로 전달해야하는지
-
+      })
       $.get("http://localhost:3000/videos", function (data) {
         $("#video-container").append(
           ' <ul id="video-lists" class="video-lists" ></ul>'
