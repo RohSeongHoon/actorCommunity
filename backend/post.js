@@ -45,7 +45,7 @@ postRouter.get("/list", async (req, res) => {
 
   try {
     let [postList] = await model.query(
-      "SELECT post_id,title,writer,write_date FROM posts WHERE category_id=" +
+      "SELECT post_id,title,writer,write_date,views FROM posts WHERE category_id=" +
         categoryId +
         " AND sub_category_id =" +
         subCategoryId
