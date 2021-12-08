@@ -47,78 +47,78 @@
     </main>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
-      $(document).ready(function () {
-        $.get("http://localhost:3000/categories", function (data) {
-          $(".category-bar").append(
-            '<ul id="category-bar__container" class="category-bar__container"></ul>'
-          );
-          for (var i = 0; i < data.length; i++) {
-            let category = data[i];
-            $("#category-bar__container").append(
-              '<li class="category-bar__list">' +
-                "<a" +
-                ' class="category-bar__list--title"' +
-                'href="../test/community/actor.html"' +
-                'rel="actor">' +
-                category.categoryKr +
-                "</a>" +
-                '<ul id="categort-bar__content' +
-                i +
-                '" class="categort-bar__content"></ul>'
-            );
+      // $(document).ready(function () {
+      //   $.get("http://localhost:3000/categories", function (data) {
+      //     $(".category-bar").append(
+      //       '<ul id="category-bar__container" class="category-bar__container"></ul>'
+      //     );
+      //     for (var i = 0; i < data.length; i++) {
+      //       let category = data[i];
+      //       $("#category-bar__container").append(
+      //         '<li class="category-bar__list">' +
+      //           "<a" +
+      //           ' class="category-bar__list--title"' +
+      //           'href="../test/community/actor.html"' +
+      //           'rel="actor">' +
+      //           category.categoryKr +
+      //           "</a>" +
+      //           '<ul id="categort-bar__content' +
+      //           i +
+      //           '" class="categort-bar__content"></ul>'
+      //       );
 
-            for (let j = 0; j < category.contents.length; j++) {
-              let contents = category.contents[j];
-              console.log(contents.postLink);
-              console.log(contents.postNameKr);
+      //       for (let j = 0; j < category.contents.length; j++) {
+      //         let contents = category.contents[j];
+      //         console.log(contents.postLink);
+      //         console.log(contents.postNameKr);
 
-              $("#categort-bar__content" + i).append(
-                '<li class="category-bar__content--item">' +
-                  "<a href=" +
-                  contents.postLink +
-                  ">" +
-                  contents.postNameKr +
-                  "</a>" +
-                  "</li>"
-              );
-            }
-          }
-        });
+      //         $("#categort-bar__content" + i).append(
+      //           '<li class="category-bar__content--item">' +
+      //             "<a href=" +
+      //             contents.postLink +
+      //             ">" +
+      //             contents.postNameKr +
+      //             "</a>" +
+      //             "</li>"
+      //         );
+      //       }
+      //     }
+      //   });
   
-      //html 재활용 하고 싶은데 이렇게 api주소만 변경해서 사용해도 되는건지 
-        $.get(
-          "http://localhost:3000/media/freePost",
-          function (data) {
-            data.forEach((element) => {
-              $("#table-body").append(
-                '<tr class="community-table-body">' +
-                  '<td class="body-item community-post-title">' +
-                  '<a class="a-scope" href="' +
-                  element.link +
-                  '">' +
-                  element.title +
-                  '<span class="number-color">' +
-                  element.numberOfComment +
-                  "</span>" +
-                  "</a>" +
-                  "</td>" +
-                  '<td class="body-item community-post-writer">' +
-                  '<a class="a-scope" href="#">' +
-                  element.writer +
-                  "</a>" +
-                  "</td>" +
-                  '<td class="body-item community-post-views number-color">' +
-                  element.views +
-                  "</td>" +
-                  "</tr>"
-              );
-            });
-          }
-        );
+      // //html 재활용 하고 싶은데 이렇게 api주소만 변경해서 사용해도 되는건지 
+      //   $.get(
+      //     "http://localhost:3000/media/freePost",
+      //     function (data) {
+      //       data.forEach((element) => {
+      //         $("#table-body").append(
+      //           '<tr class="community-table-body">' +
+      //             '<td class="body-item community-post-title">' +
+      //             '<a class="a-scope" href="' +
+      //             element.link +
+      //             '">' +
+      //             element.title +
+      //             '<span class="number-color">' +
+      //             element.numberOfComment +
+      //             "</span>" +
+      //             "</a>" +
+      //             "</td>" +
+      //             '<td class="body-item community-post-writer">' +
+      //             '<a class="a-scope" href="#">' +
+      //             element.writer +
+      //             "</a>" +
+      //             "</td>" +
+      //             '<td class="body-item community-post-views number-color">' +
+      //             element.views +
+      //             "</td>" +
+      //             "</tr>"
+      //         );
+      //       });
+      //     }
+      //   );
       
         
         
-      });
+      // });
     </script>
   </body>
 </html>
