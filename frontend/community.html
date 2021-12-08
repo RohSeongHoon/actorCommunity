@@ -65,7 +65,6 @@
 
           for (let j = 0; j < category.subCategory.length; j++) {
             let subCategory = category.subCategory[j];
-            console.log('index.js:65', category.id);
             $('#category-bar__content' + i).append(
               '<li class="category-bar__content--item">' +
               '<a href="./community.html?categoryId=' + category.id + '&sub_category_id=' + subCategory.id + '">' +
@@ -77,12 +76,11 @@
         }
       });
       $.get("http://localhost:3000/post/list" + location.search, function (data) {
-        
         data.forEach(element => {                 
         $("#table-body").append(
           '<tr class="community-table-body">' +
           '<td class="body-item community-post-title">' +
-          '<a class="a-scope" href="">' +
+          '<a class="a-scope" href="./nomal-post-main.html?postId='+element.post_id+'">' +
           element.title +
           '<span class="number-color">' +
            element.commentCount+
