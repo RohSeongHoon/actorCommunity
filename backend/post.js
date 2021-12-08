@@ -50,6 +50,17 @@ postRouter.get("/list", async (req, res) => {
         " AND sub_category_id =" +
         subCategoryId
     );
+
+    for (let i = 0; i < postList.length; i++) {
+      console.log("post.js:55 postLIst=", postList[i].post_id);
+      let [commentCount] = await model.query(
+        "SELECT count(*) AS count FROM comments WHERE parent_post_id =" +
+          postList[i].post_id
+      );
+      console.log("community =", commentCount);
+      postList[i].commentCount = commentCount[0].count;
+    }
+    console.log("postList:60 postLIst = ", postList);
     return res.json(postList);
   } catch (err) {
     console.log(err);
