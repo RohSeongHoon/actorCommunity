@@ -35,10 +35,12 @@
   width: 80%;
   height: 80px;
   border: 2px solid rgb(212, 208, 208);
+  margin-top: 12px;
 }
 .comment-button {
   width: 10%;
   margin-left: -113px;
   z-index: 5;
   border: 2px solid rgb(212, 208, 208);
+  margin-top: 12px;
 }
