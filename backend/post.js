@@ -70,6 +70,11 @@ postRouter.get("/list", async (req, res) => {
 
   // let [commentCount] = await model.query("select count(*) from comments");
 });
+postRouter.get("/videoList", async (req, res) => {
+  let categoryId = req.query.categoryId;
+  let subCategoryId = req.query.subCategoryId;
+  console.log("post.js:76", categoryId, subCategoryId);
+});
 //조건문을 밖에서 쿼리파람으로 요청
 // 문법에 맞게 사용 물음표와 [] 사용해서 변수로 삽입
 //포스트는 포스트.js안에만 있어야함
