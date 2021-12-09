@@ -74,7 +74,7 @@
           }
         }
       });
-      $.get("http://localhost:3000/post/freePostPreview", function (data) {
+      $.get("http://localhost:3000/posts/freePostPreview", function (data) {
         for (let i = 0; i < data.length; i++) {
           let category = data[i]
           $("#community__list").append(

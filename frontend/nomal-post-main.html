@@ -71,7 +71,7 @@
       function getParam(key) {
         return new URLSearchParams(location.search).get(key);
       }
-      $.get('http://localhost:3000/post?postId=' + getParam('postId'), function (data) {
+      $.get('http://localhost:3000/posts?postId=' + getParam('postId'), function (data) {
         $('#nomal-post').append(
           '<div class="nomal-writer-container">' +
           '<span class="nomal-post-writer">'+data.writer+'</span>' +

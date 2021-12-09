@@ -13,7 +13,7 @@ app.use("/", mainRoute);
 
 app.use("/categories", categoryRoute);
 
-app.use("/post", postRoute);
+app.use("/posts", postRoute);
 
 app.listen(port, () => {
   console.log(`example app listening at http://localhost:${port}`);

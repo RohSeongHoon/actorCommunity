@@ -75,7 +75,7 @@
           }
         }
       });
-      $.get("http://localhost:3000/post/list" + location.search, function (data) {
+      $.get("http://localhost:3000/posts/list" + location.search, function (data) {
         console.log('community:79',data);
         data.forEach(element => {
           $("#table-body").append(
