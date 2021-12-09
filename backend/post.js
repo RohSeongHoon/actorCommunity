@@ -44,12 +44,17 @@ postRouter.get("/list", async (req, res) => {
   let subCategoryId = req.query.subCategoryId;
 
   try {
+    let [category] = await model.query(
+      "select name_kr from sub_categories where id=" + subCategoryId
+    );
     let [postList] = await model.query(
       "SELECT post_id,title,writer,write_date,views FROM posts WHERE category_id=" +
         categoryId +
         " AND sub_category_id =" +
         subCategoryId
     );
+    postList.categoryTitle = category[0];
+    console.log("post.js:56 test=", postList.categoryTitle.name_kr);
     for (let i = 0; i < postList.length; i++) {
       let [commentCount] = await model.query(
         "SELECT count(*) AS count FROM comments WHERE parent_post_id =" +
