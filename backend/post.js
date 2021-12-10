@@ -73,12 +73,16 @@ postRouter.get("/list", async (req, res) => {
 postRouter.get("/videoList", async (req, res) => {
   let categoryId = req.query.categoryId;
   let subCategoryId = req.query.subCategoryId;
-  console.log("post.js:76", categoryId, subCategoryId);
-  let [videoList] = await model.query(
-    "select post_id,writer,title,views,write_date,sauce from posts where category_id=? and sub_category_id=?",
-    [categoryId, subCategoryId]
-  );
-  console.log("post.js:81 videoList =", videoList);
+  try {
+    let [videoList] = await model.query(
+      "select post_id,writer,title,views,write_date,sauce from posts where category_id=? and sub_category_id=?",
+      [categoryId, subCategoryId]
+    );
+    return res.json(videoList);
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 });
 //조건문을 밖에서 쿼리파람으로 요청
 // 문법에 맞게 사용 물음표와 [] 사용해서 변수로 삽입
