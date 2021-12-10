@@ -67,7 +67,7 @@
         }
       });
 
-      $.get("http://localhost:3000/posts/videoList" + location.search, function (data) {
+      $.get("http://localhost:3000/posts/list" + location.search, function (data) {
         $("#video-container").append('<ul id="video-posts"></ul>');
         data.forEach((element) => {
           let videoPost = element;
@@ -83,7 +83,7 @@
                ${videoPost.writer}
               </span>
                <span class="post-comment-count">
-                댓글수()
+                댓글수(${videoPost.commentCount})
                 </span>
                <span class="post-views">
                 조회수${videoPost.views}
