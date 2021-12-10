@@ -9,8 +9,8 @@ categoryRouter.get("/", async (req, res) => {
     let [categories] = await model.query(query);
     for (let i = 0; i < categories.length; i++) {
       let getSubCategories = await model.query(
-        "select * from sub_categories where parent_category_id =" +
-          categories[i].id
+        "select * from sub_categories where parent_category_id =?",
+        [categories[i].id]
       );
       categories[i].subCategory = getSubCategories[0];
     }

@@ -51,26 +51,24 @@
         for (let i = 0; i < data.length; i++) {
           let category = data[i]
           $("#category-bar__container").append(
-            '<li class="category-bar__list">' +
-            "<a" +
-            ' class="category-bar__list--title"' +
-            'href="./community.html?categoryId=' + category.id + '&subCategoryId=' + category.subCategory[0].id + '"' +
-            ' rel="actor">' +
-            category.name_kr +
-            "</a>" +
-            '<ul id="category-bar__content' +
-            i +
-            '" class="category-bar__content"></ul>'
+            `<li class="category-bar__list">
+              <a class="category-bar__list--title" 
+              href="./video-community.html?categoryId=${category.id}&subCategoryId=${category.subCategory[0].id}"
+              rel="actor"> 
+              ${category.name_kr}
+              </a> 
+            <ul id="category-bar__content${i}"
+            class="category-bar__content"></ul>`
           );
 
           for (let j = 0; j < category.subCategory.length; j++) {
             let subCategory = category.subCategory[j];
             $('#category-bar__content' + i).append(
-              '<li class="category-bar__content--item">' +
-              '<a href="./community.html?categoryId=' + category.id + '&subCategoryId=' + subCategory.id + '">' +
-              subCategory.name_kr +
-              "</a>" +
-              "</li>"
+              `<li class="category-bar__content--item">
+              <a href="./community.html?categoryId=${category.id}&subCategoryId=${subCategory.id}">
+              ${subCategory.name_kr}
+              </a>
+              </li>`
             )
           }
         }
@@ -79,24 +77,24 @@
         console.log('community:79',data);
         data.forEach(element => {
           $("#table-body").append(
-            '<tr class="community-table-body">' +
-            '<td class="body-item community-post-title">' +
-            '<a class="a-scope" href="./nomal-post-main.html?postId=' + element.post_id + '">' +
-            element.title +
-            '<span class="number-color">' +
-            element.commentCount +
-            "</span>" +
-            "</a>" +
-            "</td>" +
-            '<td class="body-item community-post-writer">' +
-            '<a class="a-scope" href="#">' +
-            element.writer +
-            "</a>" +
-            "</td>" +
-            '<td class="body-item community-post-views number-color">' +
-            element.views +
-            "</td>" +
-            "</tr>"
+            `<tr class="community-table-body"> 
+            <td class="body-item community-post-title"> 
+            <a class="a-scope" href="./nomal-post-main.html?postId=${element.post_id}"> 
+            ${element.title}
+            <span class="number-color"> 
+            ${element.commentCount}
+            </span> 
+            </a> 
+            </td> 
+            <td class="body-item community-post-writer"> 
+            <a class="a-scope" href="#"> 
+            ${element.writer} 
+            </a> 
+            </td> 
+            <td class="body-item community-post-views number-color"> 
+            ${element.views}
+            </td> 
+            </tr>`
           );
         });
       });
