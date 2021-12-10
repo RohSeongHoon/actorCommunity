@@ -48,7 +48,7 @@ postRouter.get("/list", async (req, res) => {
       "select name_kr from sub_categories where id=" + subCategoryId
     );
     let [postList] = await model.query(
-      "SELECT post_id,title,writer,write_date,views FROM posts WHERE category_id=" +
+      "SELECT post_id,title,writer,sauce,write_date,views FROM posts WHERE category_id=" +
         categoryId +
         " AND sub_category_id =" +
         subCategoryId
@@ -70,20 +70,7 @@ postRouter.get("/list", async (req, res) => {
 
   // let [commentCount] = await model.query("select count(*) from comments");
 });
-postRouter.get("/videoList", async (req, res) => {
-  let categoryId = req.query.categoryId;
-  let subCategoryId = req.query.subCategoryId;
-  try {
-    let [videoList] = await model.query(
-      "select post_id,writer,title,views,write_date,sauce from posts where category_id=? and sub_category_id=?",
-      [categoryId, subCategoryId]
-    );
-    return res.json(videoList);
-  } catch (err) {
-    console.log(err);
-    return err;
-  }
-});
+
 //조건문을 밖에서 쿼리파람으로 요청
 // 문법에 맞게 사용 물음표와 [] 사용해서 변수로 삽입
 //포스트는 포스트.js안에만 있어야함
