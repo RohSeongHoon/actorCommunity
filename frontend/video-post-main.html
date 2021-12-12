@@ -62,29 +62,27 @@
         }
       });
       $.get('http://localhost:3000/posts' + location.search, function (data) {
-        console.log(data);
         $('.video-main').append(
           `<div class="video-main__content">
-           <iframe class="video-main__content--video" controls src="${data.sauce}"></iframe>
-           <a class="video-main__content--writer" href="#">${data.writer}</a>
-           <a class="video-main__content--title" href="#">${data.title}</a>
-          </div>
-          <div class="vieo-main__explain">
-          <span class="video-main__explain--span">${data.content}</span>
-          </div>
-          <div id="post-comment-container"></div>`
+            <iframe class="video-main__content--video" controls src="${data.sauce}"></iframe>
+            <a class="video-main__content--writer" href="#">${data.writer}</a>
+            <a class="video-main__content--title" href="#">${data.title}</a>
+           </div>
+           <div class="vieo-main__explain">
+            <span class="video-main__explain--span">${data.content}</span>
+           </div>
+           <div id="post-comment-container"></div>`
         )
-        console.log('video-post-main.html:76: data =', data.comments);
         data.comments.forEach(element => {
           $('#post-comment-container').append(
-        ` <div class="post-comment">
-           <img class="profile-img"
-            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140505_244%2Fohijoung_1399243490095n3IX1_PNG%2Fsansam2.png&type=sc960_832" />
-           <div class="comment-writer-container">
-            <span class="comment-writer">${element.writer}</span>
-            <span class="comment-content">${element.content}</span>
-            </div>
-          </div>`
+            ` <div class="post-comment">
+               <img class="profile-img"
+                 src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140505_244%2Fohijoung_1399243490095n3IX1_PNG%2Fsansam2.png&type=sc960_832" />
+               <div class="comment-writer-container">
+                 <span class="comment-writer">${element.writer}</span>
+                 <span class="comment-content">${element.content}</span>
+               </div>
+             </div>`
           )
         });
       })

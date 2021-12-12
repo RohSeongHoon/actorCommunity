@@ -59,12 +59,17 @@
             <ul id="category-bar__content${i}"
             class="category-bar__content"></ul>`
           );
-
           for (let j = 0; j < category.subCategory.length; j++) {
             let subCategory = category.subCategory[j];
+            let link;
+            if(j==0){
+              link = './video-community.html'
+            }else{
+              link = './community.html'
+            }
             $('#category-bar__content' + i).append(
               `<li class="category-bar__content--item">
-              <a href="./community.html?categoryId=${category.id}&subCategoryId=${subCategory.id}">
+              <a href="${link}?categoryId=${category.id}&subCategoryId=${subCategory.id}">
               ${subCategory.name_kr}
               </a>
               </li>`
