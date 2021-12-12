@@ -61,34 +61,35 @@
         }
       });
       $.get('http://localhost:3000/posts'+location.search, function (data) {
-        console.log('video-post-main.html:66',data);
-    //     `<div class="video-main__content">
-    //     <video class="video-main__content--video" controls src=""></video>
-    //     <a class="video-main__content--writer" href="#">작성자 :</a>
-    //     <a class="video-main__content--title" href="#">제목</a>
-    //   </div>
-    //     <div class="vieo-main__explain">
-    //     <span class="video-main__explain--span">비디오 설명 조잘조잘
-    //       조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘</span>
-    //   </div>
-    // <div id="post-comment-container">
-    //   <div class="post-comment">
-    //     <img class="profile-img"
-    //       src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140505_244%2Fohijoung_1399243490095n3IX1_PNG%2Fsansam2.png&type=sc960_832" />
-    //     <div class="comment-writer-container">
-    //       <span class="comment-writer">작성자</span>
-    //       <span class="comment-content">asdasd</span>
-    //     </div>
-    //   </div>
-    //   <div class="post-comment">
-    //     <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
-    //     <div class="comment-writer-container">
-    //       <span class="comment-writer">작성자</span>
-    //       <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
-    //         내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
-    //     </div>
-    //   </div>
-    // </div>`
+        $('.video-main').append(
+        `<div class="video-main__content">
+        <iframe class="video-main__content--video" controls src="${data.sauce}"></iframe>
+        <a class="video-main__content--writer" href="#">${data.writer}</a>
+        <a class="video-main__content--title" href="#">${data.title}</a>
+      </div>
+        <div class="vieo-main__explain">
+        <span class="video-main__explain--span">${data.content}</span>
+      </div>
+      <div id="post-comment-container"></div>`
+    )
+    $('#post-comment-container').append(
+     ` <div class="post-comment">
+        <img class="profile-img"
+          src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140505_244%2Fohijoung_1399243490095n3IX1_PNG%2Fsansam2.png&type=sc960_832" />
+        <div class="comment-writer-container">
+          <span class="comment-writer">작성자</span>
+          <span class="comment-content">asdasd</span>
+        </div>
+      </div>
+      <div class="post-comment">
+        <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
+        <div class="comment-writer-container">
+          <span class="comment-writer">작성자</span>
+          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
+            내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
+        </div>
+      </div>`
+    )
       })
     });
   </script>
