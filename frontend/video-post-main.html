@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-  <meta charset="utf-8" />
-  <link href="./css/styles.css" rel="stylesheet" />
-  <meta name="discriptison" content="연기,뮤지컬,보컬,악기 예술인들의 커뮤니티 코멘트를 받을 수 있습니다 " />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="keywords" content="연기,뮤지컬,보컬,악기,기타" />
-  <title>test</title>
-  <meta name="description" content="예체능인들의 커뮤니티입니다" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <meta name="discriptison" content="연기,뮤지컬,보컬,악기 예술인들의 커뮤니티 코멘트를 받을 수 있습니다 " />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="연기,뮤지컬,보컬,악기,기타" />
+    <title>test</title>
+    <meta name="description" content="예체능인들의 커뮤니티입니다" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  </head>
 
 <body>
   <nav id="navbar-container">
@@ -28,48 +27,8 @@
   <nav id="category-bar" class="category-bar">
     <ul id="category-bar__container" class="category-bar__container"></ul>
   </nav>
-
-
   <main>
     <div class="video-main">
-      <div class="video-main__content">
-        <video class="video-main__content--video" controls src=""></video>
-        <a class="video-main__content--writer" href="#">작성자 :</a>
-        <a class="video-main__content--title" href="#">제목</a>
-      </div>
-      <div class="vieo-main__explain">
-        <span class="video-main__explain--span">비디오 설명 조잘조잘
-          조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘</span>
-      </div>
-
-      <form class="video-main__write-comment">
-        <input type="text" placeholder="장점을 적어주세요!" class="video-main__write-comment--pros-and-cons" />
-        <input type="text" placeholder="단점을 적어주세요!" class="video-main__write-comment--pros-and-cons" />
-        <button class="video-main__write-comment--btn" type="submit">
-          작성완료
-        </button>
-        <span>비밀댓글</span>
-        <input class="video-main__write-comment--checkbox" type="checkbox" />
-      </form>
-    </div>
-    <div id="post-comment-container">
-      <div class="post-comment">
-        <img class="profile-img"
-          src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140505_244%2Fohijoung_1399243490095n3IX1_PNG%2Fsansam2.png&type=sc960_832" />
-        <div class="comment-writer-container">
-          <span class="comment-writer">작성자</span>
-          <span class="comment-content">asdasd</span>
-        </div>
-      </div>
-      <div class="post-comment">
-        <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
-        <div class="comment-writer-container">
-          <span class="comment-writer">작성자</span>
-          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
-            내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
-        </div>
-      </div>
-    </div>
     </div>
   </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -101,29 +60,35 @@
           }
         }
       });
-      $.get("http://localhost:3000/post", function (data) {
-        `<div class="vieo-main__explain">
-        <span class="video-main__explain--span">비디오 설명 조잘조잘
-          조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘</span>
-      </div>
-    <div id="post-comment-container">
-      <div class="post-comment">
-        <img class="profile-img"
-          src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140505_244%2Fohijoung_1399243490095n3IX1_PNG%2Fsansam2.png&type=sc960_832" />
-        <div class="comment-writer-container">
-          <span class="comment-writer">작성자</span>
-          <span class="comment-content">asdasd</span>
-        </div>
-      </div>
-      <div class="post-comment">
-        <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
-        <div class="comment-writer-container">
-          <span class="comment-writer">작성자</span>
-          <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
-            내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
-        </div>
-      </div>
-    </div>`
+      $.get('http://localhost:3000/posts'+location.search, function (data) {
+        console.log('video-post-main.html:66',data);
+    //     `<div class="video-main__content">
+    //     <video class="video-main__content--video" controls src=""></video>
+    //     <a class="video-main__content--writer" href="#">작성자 :</a>
+    //     <a class="video-main__content--title" href="#">제목</a>
+    //   </div>
+    //     <div class="vieo-main__explain">
+    //     <span class="video-main__explain--span">비디오 설명 조잘조잘
+    //       조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘조잘</span>
+    //   </div>
+    // <div id="post-comment-container">
+    //   <div class="post-comment">
+    //     <img class="profile-img"
+    //       src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140505_244%2Fohijoung_1399243490095n3IX1_PNG%2Fsansam2.png&type=sc960_832" />
+    //     <div class="comment-writer-container">
+    //       <span class="comment-writer">작성자</span>
+    //       <span class="comment-content">asdasd</span>
+    //     </div>
+    //   </div>
+    //   <div class="post-comment">
+    //     <img class="profile-img" src="https://t1.daumcdn.net/cfile/tistory/247DFA4358B1426A31" />
+    //     <div class="comment-writer-container">
+    //       <span class="comment-writer">작성자</span>
+    //       <span class="comment-content">댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
+    //         내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용 내용</span>
+    //     </div>
+    //   </div>
+    // </div>`
       })
     });
   </script>

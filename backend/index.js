@@ -5,7 +5,7 @@ const port = 3000;
 const model = require("./model");
 const categoryRoute = require("./categories");
 const mainRoute = require("./main");
-const postRoute = require("./post");
+const postRoute = require("./posts");
 
 app.use(cors());
 
