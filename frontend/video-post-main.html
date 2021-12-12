@@ -65,8 +65,11 @@
         $('.video-main').append(
           `<div class="video-main__content">
             <iframe class="video-main__content--video" controls src="${data.sauce}"></iframe>
-            <a class="video-main__content--writer" href="#">${data.writer}</a>
-            <a class="video-main__content--title" href="#">${data.title}</a>
+            <div class="content-info">
+            <a class="video-main__content--title content-item" href="#">${data.title}</a>
+            <span class="content-date content-item">${data.write_date}</span>
+            <a class="video-main__content--writer content-item" href="#">${data.writer}</a>
+            </div>
            </div>
            <div class="vieo-main__explain">
             <span class="video-main__explain--span">${data.content}</span>

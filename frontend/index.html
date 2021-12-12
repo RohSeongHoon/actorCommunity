@@ -48,7 +48,7 @@
     $(document).ready(function () {
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
-          let category = data[i]
+          console.log(data);
           $("#category-bar__container").append(
             `<li class="category-bar__list">
               <a class="category-bar__list--title" 
