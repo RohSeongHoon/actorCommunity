@@ -35,7 +35,7 @@
   <nav id="category-bar" class="category-bar">
     <ul id="category-bar__container" class="category-bar__container"></ul>
   </nav>
-  
+
   <main>
     <h3 class="video-head">new</h3>
     <div class="video-container" id="video-container"></div>
@@ -48,7 +48,7 @@
     $(document).ready(function () {
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
-          console.log(data);
+          let category = data[i];
           $("#category-bar__container").append(
             `<li class="category-bar__list">
               <a class="category-bar__list--title" 
@@ -62,9 +62,9 @@
           for (let j = 0; j < category.subCategory.length; j++) {
             let subCategory = category.subCategory[j];
             let link;
-            if(j==0){
+            if (j == 0) {
               link = './video-community.html'
-            }else{
+            } else {
               link = './community.html'
             }
             $('#category-bar__content' + i).append(
@@ -81,28 +81,23 @@
         for (let i = 0; i < data.length; i++) {
           let category = data[i]
           $("#community__list").append(
-            '<div class="community__list--item"' +
-            ' id="community__list--item"' +
-            '">' +
-            "<a href=" +
-            './noaml-post-main?id=' + category.id +
-            ' id="communityTitle' +
-            '"rel="' +
-            category.name_kr +
-            '-coummunity">' +
-            category.name_kr +
-            "</a>" +
-            '<ul id="content' +
-            i +
-            '">' +
-            "</ul></div>"
+            `<div class="community__list--item"
+             id="community__list--item"> 
+              <a id="communityTitle-coummunity"> 
+              ${category.name_kr}
+              </a> 
+              <ul id="content${i}"> 
+              </ul>
+            </div>`
           );
           for (let j = 0; j < category.contents.length; j++) {
             let content = category.contents[j]
-            $("#content" + i).append(
-              " <li><a href='./nomal-post-main.html?postId=" + content.post_id + "'>" +
-              content.title +
-              "</a></li>"
+            $("#content"+i).append(
+              `<li>
+                 <a href='./nomal-post-main.html?postId=${content.post_id}'>
+                 ${content.title} 
+                </a>
+              </li>`
             );
           }//착각했음 로컬에서 하는거라 내컴퓨터에있는 파일을 링크로 전달하면 됨 
         }
@@ -114,20 +109,17 @@
         for (var i = 0; i < data.length; i++) {
           let video = data[i];
           $("#video-lists").append(
-            '<li class="video-lists__item"><iframe class="video-list__item--video"' +
-            'id="video__url' +
-            i +
-            '"  src=' +
-            video.url +
-            ' title="YouTube video player"></iframe>' +
-            '<a class="video-list__item--a"' +
-            ' id="video__a' +
-            i +
-            '" href="' +
-            video.post_link +
-            '">' +
-            video.title +
-            "</a></li>"
+            `<li class="video-lists__item">
+              <iframe class="video-list__item--video" 
+               id="video__url${i}"
+               src=${video.url}
+               title="YouTube video player"></iframe> 
+              <a class="video-list__item--a" 
+               id="video__a${i}"
+               href="${video.post_link}"> 
+               ${video.title}
+               </a>
+            </li>`
           );
         } // 없어도 되는 api 자유게시판 문제해결되면 그걸바탕으로 재설계
       });
