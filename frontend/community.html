@@ -49,7 +49,7 @@
     $(document).ready(function () {
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
-          let category = data[i]
+          let category = data[i];
           $("#category-bar__container").append(
             `<li class="category-bar__list">
               <a class="category-bar__list--title" 
@@ -57,22 +57,27 @@
               rel="actor"> 
               ${category.name_kr}
               </a> 
-               <ul id="category-bar__content${i}"
-               class="category-bar__content"></ul>`
+            <ul id="category-bar__content${i}"
+            class="category-bar__content"></ul>`
           );
-
           for (let j = 0; j < category.subCategory.length; j++) {
             let subCategory = category.subCategory[j];
+            let link;
+            if (j == 0) {
+              link = './video-community.html'
+            } else {
+              link = './community.html'
+            }
             $('#category-bar__content' + i).append(
               `<li class="category-bar__content--item">
-              <a href="./community.html?categoryId=${category.id}&subCategoryId=${subCategory.id}">
+              <a href="${link}?categoryId=${category.id}&subCategoryId=${subCategory.id}">
               ${subCategory.name_kr}
               </a>
               </li>`
             )
           }
         }
-      });
+      }); 
       $.get("http://localhost:3000/posts/list" + location.search, function (data) {
         console.log('community:77 data',data);
         data.forEach(element => {
