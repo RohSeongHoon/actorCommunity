@@ -68,6 +68,9 @@ postRouter.get("/list", async (req, res) => {
 
   // let [commentCount] = await model.query("select count(*) from comments");
 });
+postRouter.post("/", async (req, res) => {
+  console.log(req);
+});
 
 //조건문을 밖에서 쿼리파람으로 요청
 // 문법에 맞게 사용 물음표와 [] 사용해서 변수로 삽입
