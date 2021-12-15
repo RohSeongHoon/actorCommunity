@@ -48,9 +48,6 @@
   <script>
     $(document).ready(function () {
       $('#write-link').attr('href','write.html'+ location.search)
-      $('write-link').click(function(){
-        alert('작성완료')
-      })
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
           let category = data[i];

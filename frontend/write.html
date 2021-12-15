@@ -59,6 +59,9 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     $(document).ready(function(){
+      $('#write-link').click(function(){
+        alert('작성완료')
+      })
       $('#post-form').attr('action','http://localhost:3000/posts/add'+ location.search)
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
