@@ -39,7 +39,7 @@
   
   <main>
     <h2 class="category-head">글쓰기</h2>
-      <form action="/backend/posts.js" method="post">
+      <form action="http://localhost:3000/posts/add" method="post">
       <input name="title" id="write-title" type="text" placeholder="제목을 입력하세요"/>
       <textarea name="contents" class="summernote" name="editordata"></textarea> 
       <button id="write-completion-button" type="submit">작성완료</button>   
@@ -90,6 +90,7 @@
           }
         }
       });
+      
     });
   </script>
 </body>

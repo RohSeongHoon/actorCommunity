@@ -41,12 +41,13 @@
       <tbody id="table-body"></tbody>
     </table>
     <button type="submit" class="write-button">
-      <a href="./write.html"+location.search>글쓰기</a>
+      <a id="write-link" href="./write.html">글쓰기</a>
     </button>
   </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     $(document).ready(function () {
+      $('#write-link').attr('href','write.html'+ location.search)
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
           let category = data[i];

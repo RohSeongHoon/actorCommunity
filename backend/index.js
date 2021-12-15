@@ -1,13 +1,17 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+
 const port = 3000;
+const bodyParser = require("body-parser");
 const model = require("./model");
 const categoryRoute = require("./categories");
 const mainRoute = require("./main");
 const postRoute = require("./posts");
 
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/", mainRoute);
 

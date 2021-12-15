@@ -30,10 +30,9 @@
   </nav>
   <main>
     <div id="video-container">
-
     </div>
     <button type="submit" class="write-button">
-      <a href="../write.html">글쓰기</a>
+      <a id="write-link" href="./write.html">글쓰기</a>
     </button>
   </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -65,7 +64,6 @@
           }
         }
       });
-
       $.get("http://localhost:3000/posts/list" + location.search, function (data) {
         $("#video-container").append('<ul id="video-posts"></ul>');
         data.forEach((element) => {
