@@ -40,7 +40,7 @@
       </thead>
       <tbody id="table-body"></tbody>
     </table>
-    <button type="submit" onclick="writeCilck()" class="write-button">
+    <button type="submit" class="write-button">
       <a id="write-link" href="./write.html">글쓰기</a>
     </button>
   </main>
@@ -48,9 +48,9 @@
   <script>
     $(document).ready(function () {
       $('#write-link').attr('href','write.html'+ location.search)
-      function writeCilck(){
+      $('write-link').click(function(){
         alert('작성완료')
-      }
+      })
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
           let category = data[i];
