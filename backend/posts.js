@@ -69,9 +69,11 @@ postRouter.get("/list", async (req, res) => {
   // let [commentCount] = await model.query("select count(*) from comments");
 });
 postRouter.post("/add", (req, res) => {
+  const categoryId = req.query.categoryId;
+  const subCategoryId = req.query.subCategoryId;
   const title = req.body.title;
   const contents = req.body.contents;
-  console.log(`post.js:75  title = ${title},contents=${contents}`);
+  let query = "INSERT INTO post";
   return res.json("{글작성 완료}");
 });
 //조건문을 밖에서 쿼리파람으로 요청

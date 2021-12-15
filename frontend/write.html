@@ -39,7 +39,7 @@
   
   <main>
     <h2 class="category-head">글쓰기</h2>
-      <form action="http://localhost:3000/posts/add" method="post">
+      <form id="post-form" action="http://localhost:3000/posts/add" method="post">
       <input name="title" id="write-title" type="text" placeholder="제목을 입력하세요"/>
       <textarea name="contents" class="summernote" name="editordata"></textarea> 
       <button id="write-completion-button" type="submit">작성완료</button>   
@@ -59,6 +59,7 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     $(document).ready(function(){
+      $('#post-form').attr('action','http://localhost:3000/posts/add'+ location.search)
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
           let category = data[i];
