@@ -68,13 +68,19 @@ postRouter.get("/list", async (req, res) => {
 
   // let [commentCount] = await model.query("select count(*) from comments");
 });
-postRouter.post("/add", (req, res) => {
+postRouter.post("/add", async (req, res) => {
   const categoryId = req.query.categoryId;
   const subCategoryId = req.query.subCategoryId;
   const title = req.body.title;
   const contents = req.body.contents;
-  let query = "INSERT INTO post";
-  return res.json("{글작성 완료}");
+  console.log(`content =${contents}`);
+  let query = `INSERT INTO posts(category_id,sub_category_id,writer,title,content,write_date) values(${categoryId},${subCategoryId},"작성자","${title}","${contents}",now())`;
+  try {
+    await model.query(query);
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 });
 //조건문을 밖에서 쿼리파람으로 요청
 // 문법에 맞게 사용 물음표와 [] 사용해서 변수로 삽입
