@@ -27,9 +27,20 @@
   <nav id="category-bar" class="category-bar">
     <ul id="category-bar__container" class="category-bar__container"></ul>
   </nav>
+  <main>
+    <textarea name="temp" id="temp" rows="10" cols="100"></textarea>
+  </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script type="text/javascript" src="./resources/smartediter/workspace/static/js/service/HuskyEZCreator.js" charset="utf-8"></script>
-  
+  <script type="text/javascript" src="./resources/smarteaditer/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var oEditors = [];
+    nhn.husky.EZCreator.createInIFrame({
+        oAppRef: oEditors,
+        elPlaceHolder: "temp",
+        sSkinURI: "./resources/smarteaditer/SmartEditor2Skin.html",
+        fCreator: "createSEditor2"
+    });
+    </script> 
   <script>
     $(document).ready(function () {
       $.get("http://localhost:3000/categories", function (data) {
