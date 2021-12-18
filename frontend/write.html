@@ -15,14 +15,7 @@
 	<title>Home</title>
 	
 	<!-- 넓이 높이 조절 -->
-	<style>
-	.ck.ck-editor {
-    	max-width: 500px;
-	}
-	.ck-editor__editable {
-	    min-height: 300px;
-	}
-	</style>
+	
 </head>
 <body>
   <nav id="navbar-container">
@@ -41,9 +34,12 @@
     <ul id="category-bar__container" class="category-bar__container"></ul>
   </nav>
   <main>
-    <div id="classic">
-      <p>내용을 입력하세요</p>
-  </div>
+    <form method="post" action="http://localhost:3000/post">
+      <input id="write-title" type="text"> 
+      <textarea name="write-contents" id="write-contents"></textarea>   
+      <button type="submit" id="write-completion-button">작성완료</button>
+    </form>
+  
   </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
@@ -83,7 +79,7 @@
   </script>
    <script>
     ClassicEditor
-        .create( document.querySelector( '#classic' ),{language:'ko'})
+        .create( document.querySelector( '#write-contents' ),{language:'ko'})
         .catch( error => {
             console.error( error );
         } );
