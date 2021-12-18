@@ -33,15 +33,16 @@
     <ul id="category-bar__container" class="category-bar__container"></ul>
   </nav>
   <main>
-    <form method="post" action="http://localhost:3000/post">
-      <select name="sub-categories">
+    <form id="post-form" method="post" action="http://localhost:3000/post">
+      <!-- <select name="sub-categories">
         <option value="">연기영상</option>
         <option value="오디션정보">오디션정보</option>
         <option value="자유게시판">자유게시판</option>
-        
+        카테고리를 어떻게 body로 넘겨줘야할지모루겠음   
     </select>
-      <input id="write-title" placeholder="제목을 입력해주세요" type="text"> 
-      <textarea name="write-contents" id="write-contents"></textarea>   
+    -->
+      <input name="title" id="write-title" placeholder="제목을 입력해주세요" type="text"> 
+      <textarea name="contents" id="write-contents"></textarea>   
       <button type="submit" id="write-completion-button">작성완료</button>
     </form>
   
@@ -49,6 +50,10 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
     $(document).ready(function () {
+      $('#post-form').attr('action','http://localhost:3000/posts'+location.search);
+      $('#write-completion-button"').click(function(){
+        alert('작성완료')
+      })
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
           let category = data[i];
