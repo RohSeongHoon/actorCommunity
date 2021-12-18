@@ -14,7 +14,6 @@
   <script src="./resources/ckeditor/ko.js"></script>
 	<title>Home</title>
 	
-	<!-- 넓이 높이 조절 -->
 	
 </head>
 <body>
@@ -35,7 +34,13 @@
   </nav>
   <main>
     <form method="post" action="http://localhost:3000/post">
-      <input id="write-title" type="text"> 
+      <select name="sub-categories">
+        <option value="">연기영상</option>
+        <option value="오디션정보">오디션정보</option>
+        <option value="자유게시판">자유게시판</option>
+        
+    </select>
+      <input id="write-title" placeholder="제목을 입력해주세요" type="text"> 
       <textarea name="write-contents" id="write-contents"></textarea>   
       <button type="submit" id="write-completion-button">작성완료</button>
     </form>
