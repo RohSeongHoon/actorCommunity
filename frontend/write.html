@@ -10,6 +10,19 @@
   <title>test</title>
   <meta name="description" content="예체능인들의 커뮤니티입니다" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <script src="./resources/ckeditor/ckeditor.js"></script>
+  <script src="./resources/ckeditor/ko.js"></script>
+	<title>Home</title>
+	
+	<!-- 넓이 높이 조절 -->
+	<style>
+	.ck.ck-editor {
+    	max-width: 500px;
+	}
+	.ck-editor__editable {
+	    min-height: 300px;
+	}
+	</style>
 </head>
 <body>
   <nav id="navbar-container">
@@ -28,20 +41,12 @@
     <ul id="category-bar__container" class="category-bar__container"></ul>
   </nav>
   <main>
-    <textarea name="temp" id="temp" rows="10" cols="100"></textarea>
+    <div id="classic">
+      <p>내용을 입력하세요</p>
+  </div>
   </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script type="text/javascript" src="./resources/smarteaditer/js/service/HuskyEZCreator.js" charset="utf-8"></script>
-  <script type="text/javascript">
-    var oEditors = [];
-    nhn.husky.EZCreator.createInIFrame({
-        oAppRef: oEditors,
-        elPlaceHolder: "temp",
-        sSkinURI: "./resources/smarteaditer/SmartEditor2Skin.html",
-        fCreator: "createSEditor2"
-    });
-    </script> 
-  <script>
+<script>
     $(document).ready(function () {
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
@@ -76,4 +81,11 @@
       });
     });
   </script>
+   <script>
+    ClassicEditor
+        .create( document.querySelector( '#classic' ),{language:'ko'})
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
   </body>
