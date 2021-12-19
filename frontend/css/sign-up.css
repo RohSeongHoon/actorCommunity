@@ -28,3 +28,13 @@
   /* 인풋안에 placeholeder 인풋누르면 placeholeder가 
   박스 위로 올라가게 하기  */
 }
+#double-check {
+  width: 86px;
+  height: 51px;
+  position: absolute;
+  margin-left: -87px;
+  background-color: rgb(137 137 137);
+  border: 0px;
+  padding: 0px;
+  align-items: center;
+}
