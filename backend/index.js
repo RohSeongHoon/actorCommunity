@@ -8,6 +8,7 @@ const model = require("./model");
 const categoryRoute = require("./categories");
 const mainRoute = require("./main");
 const postRoute = require("./posts");
+const userRoute = require("./users");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -18,6 +19,8 @@ app.use("/", mainRoute);
 app.use("/categories", categoryRoute);
 
 app.use("/posts", postRoute);
+
+app.use("/users", userRoute);
 
 app.listen(port, () => {
   console.log(`example app listening at http://localhost:${port}`);

@@ -24,7 +24,7 @@
   font-weight: 900;
   border-bottom: 1px solid #323232;
   background-color: rgb(212, 209, 209);
-  color: #cfcfcf;
+  color: black;
   /* 인풋안에 placeholeder 인풋누르면 placeholeder가 
   박스 위로 올라가게 하기  */
 }
