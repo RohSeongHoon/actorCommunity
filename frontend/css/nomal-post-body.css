@@ -11,12 +11,11 @@
   background-color: rgb(212, 208, 208);
   justify-content: space-between;
 }
-.nomal-post-instarid {
-  align-self: flex-end;
-  display: block;
-  position: relative;
-  left: 348px;
+#edit {
+  text-align: end;
+  margin: 10px;
 }
+
 .time-to-comment {
   font-size: small;
   opacity: 0.4;

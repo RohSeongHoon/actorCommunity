@@ -32,11 +32,16 @@
     <h2 class="category-head">카테고리 이름</h2>
     <h3 class="post-title">제목</h3>
     <div id="nomal-post"></div>
+    <div id="edit">
+      <button id="edit-chage" type="button">수정</button>
+      <button id="edit-delete" type="button">삭제</button>
+    </div>
     <div class="comment-write-container">
       <textarea class="comment-textarea"></textarea>
       <button class="comment-button" type="submit"><span>댓글작성</span></button>
     </div>
     <div id="post-comment-container"></div>
+    </div>
   </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
@@ -72,10 +77,7 @@
           }
         }
       });
-      function getParam(key) {
-        return new URLSearchParams(location.search).get(key);
-      }
-      $.get('http://localhost:3000/posts?postId=' + getParam('postId'), function (data) {
+      $.get(`http://localhost:3000/posts`+location.search, function (data) {
         $('#nomal-post').append(
           '<div class="nomal-writer-container">' +
           '<span class="nomal-post-writer">'+data.writer+'</span>' +
