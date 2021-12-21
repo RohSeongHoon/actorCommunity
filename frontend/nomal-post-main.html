@@ -33,7 +33,7 @@
     <h3 class="post-title">제목</h3>
     <div id="nomal-post"></div>
     <div id="edit">
-      <button id="edit-chage" type="button">수정</button>
+      <button id="edit-chage" onclick="editpage()" type="button">수정</button>
       <button id="edit-delete" type="button">삭제</button>
     </div>
     <div class="comment-write-container">
@@ -44,6 +44,11 @@
     </div>
   </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+      function editpage() {
+        location.href='./write.html'+location.search;
+      }
+  </script>
   <script>
     $(document).ready(function () {
       $.get("http://localhost:3000/categories", function (data) {

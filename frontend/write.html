@@ -48,12 +48,14 @@
   
   </main>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script>
-    $(document).ready(function () {
-      $('#post-form').attr('action','http://localhost:3000/posts'+location.search);
+  <script>
+     $('#post-form').attr('action','http://localhost:3000/posts'+location.search);
       $('#write-completion-button"').click(function(){
         alert('작성완료')
       })
+  </script>
+<script>
+    $(document).ready(function () {
       $.get("http://localhost:3000/categories", function (data) {
         for (let i = 0; i < data.length; i++) {
           let category = data[i];

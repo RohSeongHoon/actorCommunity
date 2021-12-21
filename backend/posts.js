@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs");
 const model = require("./model");
 
 const postRouter = express.Router();
@@ -68,6 +69,10 @@ postRouter.get("/list", async (req, res) => {
 
   // let [commentCount] = await model.query("select count(*) from comments");
 });
+postRouter.get("/edit", async (req, res) => {
+  let postId = req.query.postId;
+  console.log(postId);
+});
 postRouter.post("/", async (req, res) => {
   const categoryId = req.query.categoryId;
   const subCategoryId = req.query.subCategoryId;
@@ -82,6 +87,7 @@ postRouter.post("/", async (req, res) => {
     return err;
   }
 });
+
 //body
 
 //조건문을 밖에서 쿼리파람으로 요청
