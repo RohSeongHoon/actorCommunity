@@ -50,7 +50,7 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
      $('#post-form').attr('action','http://localhost:3000/posts'+location.search);
-      $('#write-completion-button"').click(function(){
+      $('#write-completion-button').click(function(){
         alert('작성완료')
       })
   </script>
@@ -88,7 +88,8 @@
         }
       });
       $.get("http://localhost:3000/posts/edit"+location.search, function (data) {
-        console.log(`write.js:91 data = ${data}`);
+        $(`#write-title`).attr('value',data[0].title);
+        $('#write-contents').text(data[0].content);
       })
     });
   </script>

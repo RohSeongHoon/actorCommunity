@@ -75,7 +75,7 @@ postRouter.get("/edit", async (req, res) => {
     let post = await model.query(`select * from posts where post_id = ?`, [
       postId,
     ]);
-    return res.json(post);
+    return res.json(post[0]);
   } catch (err) {
     console.log(err);
     return err;
