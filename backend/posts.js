@@ -71,7 +71,15 @@ postRouter.get("/list", async (req, res) => {
 });
 postRouter.get("/edit", async (req, res) => {
   let postId = req.query.postId;
-  console.log(postId);
+  try {
+    let post = await model.query(`select * from posts where post_id = ?`, [
+      postId,
+    ]);
+    return res.json(post);
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 });
 postRouter.post("/", async (req, res) => {
   const categoryId = req.query.categoryId;
