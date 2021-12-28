@@ -2,61 +2,72 @@
 <html lang="ko">
 
 <head>
-  <meta charset="utf-8" />
-  <link href="./css/styles.css" rel="stylesheet" />
-  <meta name="discriptison" content="연기,뮤지컬,보컬,악기 예술인들의 커뮤니티 코멘트를 받을 수 있습니다 " />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="keywords" content="연기,뮤지컬,보컬,악기,기타" />
-  <title>test</title>
-  <meta name="description" content="예체능인들의 커뮤니티입니다" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <script src="./resources/ckeditor/ckeditor.js"></script>
-  <script src="./resources/ckeditor/ko.js"></script>
-	<title>Home</title>
-	
-	
+    <meta charset="utf-8" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <meta name="discriptison" content="연기,뮤지컬,보컬,악기 예술인들의 커뮤니티 코멘트를 받을 수 있습니다 " />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="연기,뮤지컬,보컬,악기,기타" />
+    <title>test</title>
+    <meta name="description" content="예체능인들의 커뮤니티입니다" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <script src="./resources/ckeditor/ckeditor.js"></script>
+    <script src="./resources/ckeditor/ko.js"></script>
+    <title>Home</title>
+
+
 </head>
+
 <body>
-  <nav id="navbar-container">
-    <div id="logo">
-      <h1><a class="logo__a" href="/index.html">예체능 커뮤니티</a></h1>
-    </div>
-    <form id="search">
-      <input type="text" placeholder="검색어를 입력하세요" />
-      <button type="submit"><span>검색</span></button>
-    </form>
-    <div id="login-button">
-      <a href="./login-interface.html" rel="login"><span>로그인</span></a>
-    </div>
-  </nav>
-  <nav id="category-bar" class="category-bar">
-    <ul id="category-bar__container" class="category-bar__container"></ul>
-  </nav>
-  <main>
-   <table id="personal-info"> 
-       <td id="name">이름</td>
-       <td id="age">나이</td>
-       <td id="gender">성별</td>
-       <td id="about-me">자기소개</td>
-       <td id="profile-title">프로필</td>
-       <img id="profile-img">
-   </table>
-  
-  </main>
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script>
-     $('#post-form').attr('action','http://localhost:3000/posts'+location.search);
-      $('#write-completion-button').click(function(){
-        alert('작성완료')
-      })
-  </script>
-<script>
-    $(document).ready(function () {
-      $.get("http://localhost:3000/categories", function (data) {
-        for (let i = 0; i < data.length; i++) {
-          let category = data[i];
-          $("#category-bar__container").append(
-            `<li class="category-bar__list">
+    <nav id="navbar-container">
+        <div id="logo">
+            <h1><a class="logo__a" href="/index.html">예체능 커뮤니티</a></h1>
+        </div>
+        <form id="search">
+            <input type="text" placeholder="검색어를 입력하세요" />
+            <button type="submit"><span>검색</span></button>
+        </form>
+        <div id="login-button">
+            <a href="./login-interface.html" rel="login"><span>로그인</span></a>
+        </div>
+    </nav>
+    <nav id="category-bar" class="category-bar">
+        <ul id="category-bar__container" class="category-bar__container"></ul>
+    </nav>
+    <main>
+        <table id="personal-info">
+            <tr>
+                <td id="name">이름</td>
+            </tr>
+            <tr>
+                <td id="age">나이</td>
+            </tr>
+            <tr>
+                <td id="gender">성별</td>
+            </tr>
+            <tr>
+                <td id="about-me">자기소개</td>
+            </tr>
+            <tr>
+                <td id="profile-title">프로필</td>
+                <img id="profile-img">
+            </tr>
+        </table>
+
+    </main>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $('#post-form').attr('action', 'http://localhost:3000/posts' + location.search);
+        $('#write-completion-button').click(function () {
+            alert('작성완료')
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.get("http://localhost:3000/categories", function (data) {
+                for (let i = 0; i < data.length; i++) {
+                    let category = data[i];
+                    $("#category-bar__container").append(
+                        `<li class="category-bar__list">
               <a class="category-bar__list--title" 
               href="./video-community.html?categoryId=${category.id}&subCategoryId=${category.subCategory[0].id}"
               rel="actor"> 
@@ -64,25 +75,25 @@
               </a> 
             <ul id="category-bar__content${i}"
             class="category-bar__content"></ul>`
-          );
-          for (let j = 0; j < category.subCategory.length; j++) {
-            let subCategory = category.subCategory[j];
-            let link;
-            if (j == 0) {
-              link = './video-community.html'
-            } else {
-              link = './community.html'
-            }
-            $('#category-bar__content' + i).append(
-              `<li class="category-bar__content--item">
+                    );
+                    for (let j = 0; j < category.subCategory.length; j++) {
+                        let subCategory = category.subCategory[j];
+                        let link;
+                        if (j == 0) {
+                            link = './video-community.html'
+                        } else {
+                            link = './community.html'
+                        }
+                        $('#category-bar__content' + i).append(
+                            `<li class="category-bar__content--item">
               <a href="${link}?categoryId=${category.id}&subCategoryId=${subCategory.id}">
               ${subCategory.name_kr}
               </a>
               </li>`
-            )
-          }
-        }
-      });
-    });
-</script>
-  </body>
+                        )
+                    }
+                }
+            });
+        });
+    </script>
+</body>
