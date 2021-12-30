@@ -10,6 +10,7 @@
 @import "./community.css";
 @import "./comment.css";
 @import "./nomal-post-body.css";
+@import "./user-page.css";
 a {
   text-decoration-line: none;
 }
