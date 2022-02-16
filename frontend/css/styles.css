@@ -11,6 +11,7 @@
 @import "./comment.css";
 @import "./nomal-post-body.css";
 @import "./user-page.css";
+@import "./login-templet.css";
 a {
   text-decoration-line: none;
 }
