@@ -1,0 +1,7 @@
+.write-card-img-left {
+  width: 30%;
+  /* Link to your background image using in the property below! */
+  background: scroll center
+    url("https://cdn.pixabay.com/photo/2019/11/07/20/48/cinema-4609877_1280.jpg");
+  background-size: cover;
+}
