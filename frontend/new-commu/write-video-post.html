@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <link href="../css/new/styles.css" rel="stylesheet" />
+
+    <title>Document</title>
+    <!-- Custom styles for this template -->
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">로고</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            매체연기
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">연기영상</a></li>
+                            <li><a class="dropdown-item" href="#">오디션정보</a></li>
+                            <li><a class="dropdown-item" href="#">자유게시판</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            연극연기
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">연기영상</a></li>
+                            <li><a class="dropdown-item" href="#">오디션정보</a></li>
+                            <li><a class="dropdown-item" href="#">자유게시판</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            뮤지컬
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">뮤지컬영상</a></li>
+                            <li><a class="dropdown-item" href="#">오디션정보</a></li>
+                            <li><a class="dropdown-item" href="#">자유게시판</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            프로필함
+                        </a>
+                        <ul class="dropdown-menu multi-level" aria-labelledby="navbarDropdownMenuLink">
+                            <li class="dropdown-item dropdown-submenu">
+                                <a class="dropdown-item" href="#">남</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">10대</a></li>
+                                    <li><a class="dropdown-item" href="#">20대</a></li>
+                                    <li><a class="dropdown-item" href="#">30대</a></li>
+                                    <li><a class="dropdown-item" href="#">40대</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-item dropdown-submenu">
+                                <a class="dropdown-item" href="#">여</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">10대</a></li>
+                                    <li><a class="dropdown-item" href="#">20대</a></li>
+                                    <li><a class="dropdown-item" href="#">30대</a></li>
+                                    <li><a class="dropdown-item" href="#">40대</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a class="btn btn-outline-success" href="./login.html">로그인</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+                    <div class="write-card-img-left d-none d-md-flex">
+
+                    </div>
+                    <div class="card-body p-4 p-sm-5">
+                        <h5 class="card-title text-center mb-5 fw-bold fs-5">글쓰기</h5>
+                        <form id="write-video-form" method="post">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="title" id="title" placeholder="이름"
+                                    required autofocus>
+                                <label for="title">제목</label>
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                                <p>!!꼭 읽어주세요!!<br>글쓰기 버튼을 누른 카테고리에 작성이 됩니다<br>광고성 게시물이나 선정적인 게시물은 경고없이 삭제가 될 수 있습니다!</p>                                                        
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input type="text" class="form-control" name="videoSource" id="videoSource" placeholder="이름"
+                                    required autofocus>
+                                <label for="videoSource">유튜브 링크</label>
+                            </div>
+                            <div class="alert alert-warning" role="alert">
+                                <p>채널이 없는경우: shtjdvkf@naver.com으로 메일을 보내주세요<br> 저희 유튜브 채널에 올린뒤 링크를 보내드립니다</p>
+                              </div>
+                            <hr>                           
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" placeholder="영상 설명" name="videoSource" id="videoSource"
+                                    style="height: 100px"></textarea>
+                                <label for="videoSource">영상 설명</label>
+                            </div>
+                            <div class="d-grid mb-2">
+                                <button id="write-btn" class="btn btn-lg btn-secondary btn-login fw-bold text-uppercase" onclick="send()" type="button">글쓰기</button>
+                              </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script>
+  
+            function send() {
+           let data = $('#write-video-form').serializeArray();
+           let formData = {};
+           for (let i = 0; i < data.length; i++) {
+             formData[data[i]['name']]=data[i]['value'];
+           }
+           console.log(formData);
+          $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "http://localhost:8080/api/v1/posts",
+            dataType: "json",
+            data: JSON.stringify(formData),
+            success: function (data) {
+              alert(data);
+             },
+          
+          });
+        }
+        </script>
+</body>
+
+</html>
