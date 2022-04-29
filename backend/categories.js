@@ -7,19 +7,23 @@ categoryRouter.get("/", async (req, res) => {
   const query = "select * from categories";
   try {
     let [categories] = await model.query(query);
-    for (let i = 0; i < categories.length; i++) {
-      let getSubCategories = await model.query(
-        "select * from sub_categories where parent_category_id =?",
-        [categories[i].id]
-      );
-      categories[i].subCategory = getSubCategories[0];
-    }
-    return res.json(categories);
+    return res.json(categories[0]);
   } catch (err) {
     console.log(err);
     return err;
   }
 });
+
+categoryRouter.get("/main",async(req,res)=>{
+  const query = "select * from categories";
+  try{
+    let [result] = await model.query(query);
+    return res.json(result);
+  }catch(err){
+    console.log(err);
+    return err;
+  }
+})
 
 module.exports = categoryRouter;
 
